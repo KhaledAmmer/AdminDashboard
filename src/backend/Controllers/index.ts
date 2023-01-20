@@ -3,9 +3,4 @@ import managementRouter from './management';
 import salesRouter from './sales';
 import generalRouter from './general';
 
-export {
-  clientRouter,
-  managementRouter,
-  salesRouter,
-  generalRouter,
-};
+export { clientRouter, managementRouter, salesRouter, generalRouter };

@@ -16,8 +16,8 @@
   "rules": {
     "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
     "arrow-spacing": ["error", { "before": true, "after": true }],
-    "no-console": "error",
-    "no-debugger": "error",
+    "no-console": "warn",
+    "no-debugger": "warn",
     "no-var": "error",
     "prefer-const": "error",
     "prefer-arrow-callback": "error",
@@ -30,9 +30,6 @@
     "prefer-object-spread": "error",
     "prefer-regex-literals": "error",
     "no-use-before-define": "error",
-    "indent": ["error", "tab"],
-    "linebreak-style": ["error", "windows"],
-    "quotes": ["error", "backtick"],
     "semi": ["error", "always"]
   }
 }

@@ -5,16 +5,20 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": "./",
+    "typeRoots": ["src/backend/node_modules/@types", "src/backend/global.d.ts"],
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts", "**/*.tsx", "src/backend/index.js"],
+  "exclude": ["node_modules", "src/backend/node_modules"]
 }
