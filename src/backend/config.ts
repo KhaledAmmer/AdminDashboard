@@ -1,17 +1,17 @@
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 interface ENV {
-    NODE_ENV: string | undefined;
-    PORT: number | undefined;
-    MONGODB_CONNECTION_STRING: string | undefined;
-  }
-  
-  interface Config {
-    NODE_ENV: string;
-    PORT: number;
-    MONGODB_CONNECTION_STRING: string;
-  }
+  NODE_ENV: string | undefined;
+  PORT: number | undefined;
+  MONGODB_CONNECTION_STRING: string | undefined;
+}
+
+interface Config {
+  NODE_ENV: string;
+  PORT: number;
+  MONGODB_CONNECTION_STRING: string;
+}
 
 const getConfig = (): ENV => {
   return {
@@ -35,5 +35,3 @@ const config = getConfig();
 const sanitizedConfig = getSanitizedConfig(config);
 
 export default sanitizedConfig;
-
-

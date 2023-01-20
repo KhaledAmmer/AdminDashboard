@@ -10,8 +10,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.ts",
-    "build": "tsc"
+    "dev": "nodemon index.ts"
   },
   "dependencies": {
     "@types/cors": "^2.8.13",

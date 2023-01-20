@@ -1,9 +1,9 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express = require('express');
+import bodyParser = require('body-parser');
+import morgan = require('morgan');
+import cors = require('cors');
 import mongoose from 'mongoose';
-import cors from 'cors';
 import helmet from 'helmet';
-import morgan from 'morgan';
 import {
   clientRouter,
   managementRouter,
