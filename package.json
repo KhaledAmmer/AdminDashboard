@@ -1,11 +1,10 @@
 {
   "engines": {
     "node": ">=16.8.1",
-    "npm": "please-use-npm",
-    "yarn": ">=1.22.19"
+    "yarn": ">=1.22.19",
+    "npm": "please-use-yarn"
   },
   "scripts": {
-    "dev": "next dev",
     "build": "tsc src/backend/index.ts",
     "start": "next start",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
