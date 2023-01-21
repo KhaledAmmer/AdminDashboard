@@ -1,5 +1,8 @@
-export const dataAffiliateStat
-: Array<{ _id: string,userId:string,affiliateSales:Array<string> }> = [
+export const dataAffiliateStat: Array<{
+  _id: string;
+  userId: string;
+  affiliateSales: Array<string>;
+}> = [
   {
     _id: '6371251df03239e680000033',
     userId: '63701cc1f03239f09e00018a',
