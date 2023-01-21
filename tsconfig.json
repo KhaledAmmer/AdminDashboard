@@ -21,5 +21,9 @@
     "typeRoots": ["src/backend/node_modules/@types", "src/backend/global.d.ts"]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
-  "exclude": ["node_modules", "src/backend/node_modules","src/frontend/node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/backend/node_modules",
+    "src/frontend/node_modules"
+  ]
 }
