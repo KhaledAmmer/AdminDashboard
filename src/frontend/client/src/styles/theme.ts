@@ -63,12 +63,8 @@ function reverseTokens(tokensDark: Tokens) {
 }
 export const tokensLight = reverseTokens(tokensDark);
 
-const s :ThemeOptions = {
-  
-};
-export const themeSettings = (
-  mode: 'dark' | 'light'
-): ThemeOptions => {
+const s: ThemeOptions = {};
+export const themeSettings = (mode: 'dark' | 'light'): ThemeOptions => {
   return {
     palette: {
       mode: mode,

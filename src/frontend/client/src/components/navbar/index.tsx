@@ -12,15 +12,13 @@ import { makeStyles, createStyles } from '@mui/styles';
 import { AppBar, ThemeOptions, Toolbar, TooltipProps } from '@mui/material';
 
 const useStyles = makeStyles((theme: ThemeOptions) =>
-    createStyles({
-        root: {
-            backgroundColor: theme ? theme!.palette!.background.paper : 'white',
-            color: theme.palette.text.primary,
-        },
-    })
+  createStyles({
+    root: {
+      backgroundColor: theme ? theme!.palette!.background.paper : 'white',
+      color: theme.palette.text.primary,
+    },
+  })
 );
-
-
 
 export const Navbar = () => {
   const dispatch = useAppDispatch();
