@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext", "ES2015.Core"],
     "allowJs": true,
     "strict": true,
@@ -8,7 +8,7 @@
     "jsx": "preserve",
     "sourceMap": true,
     "incremental": true,
-    "module": "ES6",
+    "module": "CommonJS",
     "skipLibCheck": true,
     "removeComments": true,
     "isolatedModules": true,

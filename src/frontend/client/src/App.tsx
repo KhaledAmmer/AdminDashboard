@@ -18,7 +18,7 @@ function App() {
   const mode = useAppSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
-    <div className='app' >
+    <div className="app">
       <Router>
         <ThemeProvider theme={theme}>
           <CssBaseline />

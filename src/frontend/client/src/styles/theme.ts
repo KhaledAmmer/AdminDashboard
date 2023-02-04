@@ -4,6 +4,28 @@ type Tokens = {
   [key in 'gray' | 'primary' | 'secondary']: { [key: number]: string };
 };
 
+declare module '@mui/material/styles' {
+  interface PaletteColor {
+    light: string;
+    main: string;
+    dark: string;
+    contrastText: string;
+    0: string;
+    10: string;
+    50: string;
+    100: string;
+    200: string;
+    300: string;
+    400: string;
+    500: string;
+    600: string;
+    700: string;
+    800: string;
+    900: string;
+    1000: string;
+  }
+}
+
 export const tokensDark: Tokens = {
   gray: {
     0: '#ffffff',
@@ -52,7 +74,7 @@ function reverseTokens(tokensDark: Tokens) {
   Object.entries(tokensDark).forEach(([key, val]) => {
     const keys = Object.keys(val);
     const values = Object.values(val);
-    const length = keys.length;
+    const { length } = keys;
     const reversedObj: { [key: number]: string } = {};
     for (let i = 0; i < length; i++) {
       reversedObj[Number(keys[i])] = values[length - i - 1];

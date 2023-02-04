@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import {
   LightModeOutlined,
   DarkModeOutlined,
@@ -6,7 +6,7 @@ import {
   Search,
   SettingsOutlined,
 } from '@mui/icons-material';
-import { makeStyles, createStyles,  } from '@mui/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 import {
   AppBar,
   IconButton,
@@ -18,6 +18,12 @@ import {
 import { useAppDispatch } from '../hooks/redux';
 import { FlexBetween } from './flexbox';
 import { setMode } from '../redux/reducers/global';
+
+
+type NavbarProps = {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+};
 
 const useStyles = makeStyles((theme: ThemeOptions) =>
   createStyles({
@@ -33,11 +39,11 @@ const useStyles = makeStyles((theme: ThemeOptions) =>
   })
 );
 
-export default function Navbar() {
+export default function Navbar(props: NavbarProps) {
+  const { isSidebarOpen, setIsSidebarOpen } = props;
   const classes = useStyles();
   const dispatch = useAppDispatch();
-  const theme = useTheme(); 
-
+  const theme = useTheme();
   return (
     <AppBar
       sx={{
@@ -49,7 +55,7 @@ export default function Navbar() {
     >
       <Toolbar className={classes.toolbar}>
         <FlexBetween>
-          <IconButton onClick={() => console.log('Ts')}>
+          <IconButton onClick={() => setIsSidebarOpen(state => !state)}>
             <MenuIcon />
           </IconButton>
           <FlexBetween className={classes.flexBox}>
@@ -69,7 +75,7 @@ export default function Navbar() {
             )}
           </IconButton>
           <IconButton onClick={() => console.log('Ts')}>
-             <SettingsOutlined/>
+            <SettingsOutlined />
           </IconButton>
         </FlexBetween>
       </Toolbar>
