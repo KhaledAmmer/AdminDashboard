@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+type initialStateType = {
+  mode: 'dark' | 'light';
+};
+
+const initialState: initialStateType = {
   mode: 'dark',
 };
 

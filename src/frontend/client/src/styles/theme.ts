@@ -1,3 +1,5 @@
+import { ThemeOptions } from '@mui/material';
+
 type Tokens = {
   [key in 'gray' | 'primary' | 'secondary']: { [key: number]: string };
 };
@@ -61,7 +63,12 @@ function reverseTokens(tokensDark: Tokens) {
 }
 export const tokensLight = reverseTokens(tokensDark);
 
-export const theme = (mode: 'dark' | 'light' = 'dark') => {
+const s :ThemeOptions = {
+  
+};
+export const themeSettings = (
+  mode: 'dark' | 'light'
+): ThemeOptions => {
   return {
     palette: {
       mode: mode,
@@ -82,7 +89,6 @@ export const theme = (mode: 'dark' | 'light' = 'dark') => {
             },
             background: {
               default: tokensDark.primary[600],
-              alt: tokensDark.primary[500],
             },
           }
         : {
@@ -103,7 +109,6 @@ export const theme = (mode: 'dark' | 'light' = 'dark') => {
             },
             background: {
               default: tokensDark.gray[0],
-              alt: tokensDark.gray[50],
             },
           }),
     },
