@@ -14,17 +14,18 @@ import { AppBar, ThemeOptions, Toolbar, TooltipProps } from '@mui/material';
 const useStyles = makeStyles((theme: ThemeOptions) =>
   createStyles({
     root: {
-      backgroundColor: theme ? theme!.palette!.background.paper : 'white',
-      color: theme.palette.text.primary,
+      backgroundColor: theme?.palette?.background?.paper,
+      color: theme?.palette?.text?.primary,
     },
   })
 );
 
 export const Navbar = () => {
+  const classes = useStyles();
   const dispatch = useAppDispatch();
 
   return (
-    <AppBar className="">
+    <AppBar className={classes.root}>
       <Toolbar></Toolbar>
     </AppBar>
   );

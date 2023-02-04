@@ -5,7 +5,7 @@
     "allowJs": true,
     "strict": true,
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "sourceMap": true,
     "incremental": true,
     "module": "ES6",
@@ -22,12 +22,10 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "baseUrl": "./",
-    "typeRoots": ["src/backend/node_modules/@types", "src/backend/global.d.ts", "src/frontend/node_modules/@types"],
+    "typeRoots": [ "node_modules/@types"],
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
   "exclude": [
     "node_modules",
-    "src/backend/node_modules",
-    "src/frontend/node_modules"
   ]
 }

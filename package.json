@@ -6,7 +6,6 @@
   },
   "scripts": {
     "build": "tsc src/backend/index.ts",
-    "start": "next start",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
     "prettier": "prettier --write .",
     "prepare": "husky install"
