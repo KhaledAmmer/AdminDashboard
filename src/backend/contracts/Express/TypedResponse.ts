@@ -7,5 +7,5 @@ type GenericResponse<TPayload> = {
   data: TPayload;
 };
 export interface TypedResponse<ResBody> extends Response {
-  json: Send<GenericResponse<ResBody | null | unknown >  , this>;
+  json: Send<GenericResponse<ResBody | null | unknown>, this>;
 }

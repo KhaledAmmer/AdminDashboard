@@ -1,11 +1,11 @@
-import { IUser } from "src/backend/models/User";
+import { IUser } from 'src/backend/models/User';
 
 export type UserGetOneRequestDto = {
-    id: string;
-  };
-  
+  id: string;
+};
+
 export type UserGetOneResponseDto = {
-  _id:  IUser['_id'];
+  _id: IUser['_id'];
   email: IUser['email'];
   name: IUser['name'];
   city: IUser['city'];

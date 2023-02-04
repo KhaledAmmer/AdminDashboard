@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: ThemeOptions) =>
 );
 
 export default function Navbar(props: NavbarProps) {
-  const {setIsSidebarOpen } = props;
+  const { setIsSidebarOpen } = props;
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const theme = useTheme();

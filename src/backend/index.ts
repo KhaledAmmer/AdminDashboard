@@ -33,7 +33,7 @@ app.use('/sales', salesRouter);
 app.use('/general', generalRouter);
 
 /* MONGOOSE */
-mongoose.set("strictQuery", false);
+mongoose.set('strictQuery', false);
 const PORT = config.PORT || 5000;
 mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
   if (error) {
