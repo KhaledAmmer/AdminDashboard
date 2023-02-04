@@ -19,9 +19,7 @@ import { useAppDispatch } from '../hooks/redux';
 import { FlexBetween } from './flexbox';
 import { setMode } from '../redux/reducers/global';
 
-
 type NavbarProps = {
-  isSidebarOpen: boolean;
   setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -40,7 +38,7 @@ const useStyles = makeStyles((theme: ThemeOptions) =>
 );
 
 export default function Navbar(props: NavbarProps) {
-  const { isSidebarOpen, setIsSidebarOpen } = props;
+  const {setIsSidebarOpen } = props;
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const theme = useTheme();
@@ -55,7 +53,7 @@ export default function Navbar(props: NavbarProps) {
     >
       <Toolbar className={classes.toolbar}>
         <FlexBetween>
-          <IconButton onClick={() => setIsSidebarOpen(state => !state)}>
+          <IconButton onClick={() => setIsSidebarOpen((state) => !state)}>
             <MenuIcon />
           </IconButton>
           <FlexBetween className={classes.flexBox}>

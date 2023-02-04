@@ -12,6 +12,10 @@ import {
 } from './routes/index';
 import config from './config';
 
+import User from './models/User';
+
+import { dataUser } from './data';
+
 /* CONFIGURATION */
 const app = express();
 app.use(express.json());
@@ -29,6 +33,7 @@ app.use('/sales', salesRouter);
 app.use('/general', generalRouter);
 
 /* MONGOOSE */
+mongoose.set("strictQuery", false);
 const PORT = config.PORT || 5000;
 mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
   if (error) {
