@@ -12,12 +12,13 @@ import { createTheme } from '@mui/material/styles';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Dashboard } from './pages';
 import { Layout } from './components';
+import './styles/global.css';
 
 function App() {
   const mode = useAppSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   return (
-    <div className="app">
+    <div className='app' >
       <Router>
         <ThemeProvider theme={theme}>
           <CssBaseline />

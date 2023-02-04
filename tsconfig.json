@@ -22,7 +22,11 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "baseUrl": "./",
-    "typeRoots": ["src/backend/node_modules/@types", "src/backend/global.d.ts", "src/frontend/node_modules/@types"],
+    "typeRoots": [
+      "src/backend/node_modules/@types",
+      "src/backend/global.d.ts",
+      "src/frontend/node_modules/@types"
+    ]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
   "exclude": [

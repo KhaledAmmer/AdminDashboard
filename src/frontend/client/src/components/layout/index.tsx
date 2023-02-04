@@ -1,11 +1,23 @@
-import { Box } from '@mui/system';
 import React from 'react';
+import { makeStyles, createStyles } from '@mui/styles';
+import { Box } from '@mui/system';
 import { Outlet } from 'react-router-dom';
-import { Navbar } from '../navbar';
+import { ThemeOptions } from '@mui/material/styles';
+import Navbar from '../Navbar';
 
-const Layout = () => {
+const useStyles = makeStyles((theme: ThemeOptions) =>
+  createStyles({
+    root: {
+      width: '100%',
+      height: '100%',
+    },
+  })
+);
+
+export default function Layout () {
+  const classes = useStyles();
   return (
-    <Box>
+    <Box className={classes.root}>
       <Box>
         <Navbar />
         <Outlet />
@@ -13,4 +25,3 @@ const Layout = () => {
     </Box>
   );
 };
-export default Layout;
