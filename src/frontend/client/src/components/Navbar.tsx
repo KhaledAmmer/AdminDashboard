@@ -5,21 +5,29 @@ import {
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
+  ArrowDropDownOutlined,
 } from '@mui/icons-material';
 import { makeStyles, createStyles } from '@mui/styles';
 import {
   AppBar,
+  Box,
   IconButton,
   InputBase,
   ThemeOptions,
   Toolbar,
+  Typography,
   useTheme,
 } from '@mui/material';
 import { useAppDispatch } from '../hooks/redux';
 import { FlexBetween } from './flexbox';
 import { setMode } from '../redux/reducers/global';
+import { UserGetOneResponseDto } from 'src/api/user/user.types';
+import profileImage from '../assets/profile.jpeg';
+import FlexBox from './flexbox/FlexBox';
+
 
 type NavbarProps = {
+  user?: UserGetOneResponseDto;
   setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -38,7 +46,7 @@ const useStyles = makeStyles((theme: ThemeOptions) =>
 );
 
 export default function Navbar(props: NavbarProps) {
-  const { setIsSidebarOpen } = props;
+  const { user, setIsSidebarOpen } = props;
   const classes = useStyles();
   const dispatch = useAppDispatch();
   const theme = useTheme();
@@ -64,7 +72,7 @@ export default function Navbar(props: NavbarProps) {
           </FlexBetween>
         </FlexBetween>
         {/*Right Section */}
-        <FlexBetween>
+        <FlexBetween gap="1rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === 'dark' ? (
               <DarkModeOutlined />
@@ -75,6 +83,35 @@ export default function Navbar(props: NavbarProps) {
           <IconButton onClick={() => console.log('Ts')}>
             <SettingsOutlined />
           </IconButton>
+          <FlexBox gap='0.5rem'>
+          <Box
+              component="img"
+              alt="profile"
+              src={profileImage}
+              height="30px"
+              width="30px"
+              borderRadius="50%"
+              sx={{ objectFit: 'cover' }}
+            />
+          <Box textAlign="left">
+              <Typography
+                fontWeight="bold"
+                fontSize="0.7rem"
+                sx={{ color: theme.palette.secondary[100] }}
+              >
+                {user?.name}
+              </Typography>
+              <Typography
+                fontSize="0.6rem"
+                sx={{ color: theme.palette.secondary[200] }}
+              >
+                {user?.occupation}
+              </Typography>
+            </Box>
+            <ArrowDropDownOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: "15px" }}
+              />
+          </FlexBox>
         </FlexBetween>
       </Toolbar>
     </AppBar>

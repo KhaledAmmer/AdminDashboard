@@ -23,17 +23,23 @@ export default function Layout() {
   const isNonMobile = useMediaQuery('(min-width: 600px)');
   const [isSidebarOpen, setIsSidebarOpen] = useState(isNonMobile);
   const userId = useAppSelector((state) => state.global.userId);
-  const { data } = useGetUserQuery({id: userId});
+  const {
+    data:userRes,
+    isError,
+    isFetching,
+    error,
+  } = useGetUserQuery({ id: userId });
   return (
     <Box className={classes.root}>
-      <Sidebar
+      {isSidebarOpen && <Sidebar
+        user={userRes?.data}
         drawerWidth="250px"
         isNonMobile={isNonMobile}
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
-      />
+      />}
       <Box width="100%" height="100%">
-        <Navbar setIsSidebarOpen={setIsSidebarOpen} />
+        <Navbar user={userRes?.data} setIsSidebarOpen={setIsSidebarOpen} />
         <Outlet />
       </Box>
     </Box>

@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import globalReducer from './reducers/global';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { api } from '../api/api';
+import { api } from '../api';
 
 const store = configureStore({
   reducer: {
