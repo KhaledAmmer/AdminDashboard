@@ -1,26 +1,30 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 export interface IProductStat extends Document {
-    _id: string;
-    productId: string;
-    yearlySalesTotal: number;
-    yearlyTotalSoldUnits: number;
-    year: number;
-    monthlyData: [{
-        month: string,
-        totalSales: number,
-        totalUnits: number,
-    }];
-    dailyData: [{
-        date: string,
-        totalSales: number,
-        totalUnits: number,
-    }];
-  }
+  _id: string;
+  productId: string;
+  yearlySalesTotal: number;
+  yearlyTotalSoldUnits: number;
+  year: number;
+  monthlyData: [
+    {
+      month: string;
+      totalSales: number;
+      totalUnits: number;
+    }
+  ];
+  dailyData: [
+    {
+      date: string;
+      totalSales: number;
+      totalUnits: number;
+    }
+  ];
+}
 
 const ProductStatSchema = new mongoose.Schema(
   {
-    productId: {type: mongoose.Schema.Types.ObjectId, ref: 'Product'},
+    productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
     yearlySalesTotal: Number,
     yearlyTotalSoldUnits: Number,
     year: Number,
@@ -42,5 +46,8 @@ const ProductStatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const ProductStat = mongoose.model<IProductStat>("ProductStat", ProductStatSchema);
+const ProductStat = mongoose.model<IProductStat>(
+  'ProductStat',
+  ProductStatSchema
+);
 export default ProductStat;

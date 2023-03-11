@@ -40,7 +40,11 @@ export default class GenericApiResponse {
       data: body,
     });
   }
-  static notFound<ResBody>(res: Response, body: ResBody, message?:string): AppResponse<ResBody> {
+  static notFound<ResBody>(
+    res: Response,
+    body: ResBody,
+    message?: string
+  ): AppResponse<ResBody> {
     return res.status(404).json({
       success: true,
       message: message ?? 'Not found',

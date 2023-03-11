@@ -8,7 +8,7 @@ import {
 const productApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query<
-      GenericResponse<ProductGetAllResponseDto>,
+      GenericResponse<Array<ProductGetAllResponseDto>>,
       ProductGetAllRequestDto
     >({
       query: (request) =>
@@ -17,7 +17,7 @@ const productApi = api.injectEndpoints({
     }),
     oneProduct: builder.query<
       GenericResponse<ProductGetOneResponseDto>,
-      {id:number}
+      { id: number }
     >({
       query: (request) => `/products/${request.id}`,
       providesTags: ['Product'],
@@ -25,4 +25,4 @@ const productApi = api.injectEndpoints({
   }),
 });
 
-export const { useGetAllProductsQuery ,useOneProductQuery } = productApi;
+export const { useGetAllProductsQuery, useOneProductQuery } = productApi;
