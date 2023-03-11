@@ -24,20 +24,22 @@ export default function Layout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(isNonMobile);
   const userId = useAppSelector((state) => state.global.userId);
   const {
-    data:userRes,
+    data: userRes,
     isError,
     isFetching,
     error,
   } = useGetUserQuery({ id: userId });
   return (
     <Box className={classes.root}>
-      {isSidebarOpen && <Sidebar
-        user={userRes?.data}
-        drawerWidth="250px"
-        isNonMobile={isNonMobile}
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />}
+      {isSidebarOpen && (
+        <Sidebar
+          user={userRes?.data}
+          drawerWidth="250px"
+          isNonMobile={isNonMobile}
+          isSidebarOpen={isSidebarOpen}
+          setIsSidebarOpen={setIsSidebarOpen}
+        />
+      )}
       <Box width="100%" height="100%">
         <Navbar user={userRes?.data} setIsSidebarOpen={setIsSidebarOpen} />
         <Outlet />

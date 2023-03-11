@@ -9,7 +9,7 @@ export type GenericResponse<TPayload> = {
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   reducerPath: 'adminApi',
-  tagTypes: ['User'],
+  tagTypes: ['User','Product'],
   endpoints: (builder) => ({
     //! query<response, request>({})
   }),

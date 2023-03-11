@@ -13,8 +13,11 @@
     "dev": "nodemon index.ts"
   },
   "dependencies": {
+    "@automapper/classes": "^8.7.7",
+    "@automapper/core": "^8.7.7",
     "@types/cors": "^2.8.13",
     "@types/morgan": "^1.9.4",
+    "automapper-ts": "^1.9.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

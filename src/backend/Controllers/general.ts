@@ -5,7 +5,6 @@ import {
   UserGetOneRequestDto,
   UserGetOneResponseDto,
 } from '../contracts/user/UserGetOneDto';
-import 'express-async-errors';
 
 import User from '../models/User';
 import { NextFunction } from 'express';

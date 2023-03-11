@@ -25,7 +25,6 @@ import { UserGetOneResponseDto } from 'src/api/user/user.types';
 import profileImage from '../assets/profile.jpeg';
 import FlexBox from './flexbox/FlexBox';
 
-
 type NavbarProps = {
   user?: UserGetOneResponseDto;
   setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
@@ -83,8 +82,8 @@ export default function Navbar(props: NavbarProps) {
           <IconButton onClick={() => console.log('Ts')}>
             <SettingsOutlined />
           </IconButton>
-          <FlexBox gap='0.5rem'>
-          <Box
+          <FlexBox gap="0.5rem">
+            <Box
               component="img"
               alt="profile"
               src={profileImage}
@@ -93,7 +92,7 @@ export default function Navbar(props: NavbarProps) {
               borderRadius="50%"
               sx={{ objectFit: 'cover' }}
             />
-          <Box textAlign="left">
+            <Box textAlign="left">
               <Typography
                 fontWeight="bold"
                 fontSize="0.7rem"
@@ -109,8 +108,8 @@ export default function Navbar(props: NavbarProps) {
               </Typography>
             </Box>
             <ArrowDropDownOutlined
-                sx={{ color: theme.palette.secondary[300], fontSize: "15px" }}
-              />
+              sx={{ color: theme.palette.secondary[300], fontSize: '15px' }}
+            />
           </FlexBox>
         </FlexBetween>
       </Toolbar>

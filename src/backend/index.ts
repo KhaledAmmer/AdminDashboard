@@ -5,13 +5,27 @@ import cors = require('cors');
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 import {
-  clientRouter,
+  productRouter,
   managementRouter,
   salesRouter,
   generalRouter,
 } from './routes/index';
 import config from './config';
 import { globalErrorHandler } from './helpers/errorHandler';
+/* import { createMapper } from '@automapper/core';
+import { classes } from '@automapper/classes';
+
+// Create and export the mapper
+export const mapper = createMapper({
+    strategyInitializer: classes(),
+}); */
+/* 
+*! insert those once
+import { dataProduct, dataProductStat, dataUser } from './data';
+import Product from './models/Product';
+import ProductStat from './models/ProductStat';
+import User from './models/User';\
+*/
 
 /* CONFIGURATION */
 const app = express();
@@ -24,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 /* Routes */
-app.use('/client', clientRouter);
+app.use('/products', productRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
 app.use('/general', generalRouter);
@@ -38,6 +52,14 @@ mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
     console.log('Error connecting to MongoDB', error);
     return;
   }
+
+  /* 
+   ! insert those once 
+  User.insertMany(dataUser)
+  Product.insertMany(dataProduct);
+  ProductStat.insertMany(dataProductStat);
+  */
+
   console.log('Connected to MongoDB');
 });
 
