@@ -6,8 +6,8 @@ import { ThemeOptions } from '@mui/material/styles';
 import Navbar from '../Navbar';
 import { useMediaQuery } from '@mui/material';
 import Sidebar from '../Sidebar';
-import { useGetUserQuery } from 'src/api/user';
 import { useAppSelector } from 'src/hooks/redux';
+import { useGetUserQuery } from 'src/api/user';
 
 const useStyles = makeStyles((theme: ThemeOptions) =>
   createStyles({
@@ -23,7 +23,7 @@ export default function Layout() {
   const isNonMobile = useMediaQuery('(min-width: 600px)');
   const [isSidebarOpen, setIsSidebarOpen] = useState(isNonMobile);
   const userId = useAppSelector((state) => state.global.userId);
-  const { data } = useGetUserQuery(userId);
+  const { data } = useGetUserQuery({id: userId});
   return (
     <Box className={classes.root}>
       <Sidebar

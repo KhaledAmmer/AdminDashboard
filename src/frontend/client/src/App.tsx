@@ -11,7 +11,7 @@ import { useAppSelector } from './hooks/redux';
 import { createTheme } from '@mui/material/styles';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Dashboard } from './pages';
-import { Layout } from './components';
+import Layout from './components/layout';
 import './styles/global.css';
 
 function App() {

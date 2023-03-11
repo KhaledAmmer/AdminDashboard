@@ -6,6 +6,6 @@ type GenericResponse<TPayload> = {
   message: string;
   data: TPayload;
 };
-export interface TypedResponse<ResBody> extends Response {
+export interface AppResponse<ResBody> extends Response {
   json: Send<GenericResponse<ResBody | null | unknown>, this>;
 }

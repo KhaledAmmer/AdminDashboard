@@ -11,10 +11,7 @@ import {
   generalRouter,
 } from './routes/index';
 import config from './config';
-
-import User from './models/User';
-
-import { dataUser } from './data';
+import { globalErrorHandler } from './helpers/errorHandler';
 
 /* CONFIGURATION */
 const app = express();
@@ -31,6 +28,7 @@ app.use('/client', clientRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
 app.use('/general', generalRouter);
+app.use(globalErrorHandler);
 
 /* MONGOOSE */
 mongoose.set('strictQuery', false);
@@ -41,7 +39,8 @@ mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
     return;
   }
   console.log('Connected to MongoDB');
-  app.listen(PORT, () => {
-    console.log(`Server running on port: ${PORT}`);
-  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
 });

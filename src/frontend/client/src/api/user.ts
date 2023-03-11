@@ -1,15 +1,13 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { api } from './api';
+import { UserGetOneRequestDto, UserGetOneResponseDto } from './types/user.types';
 
-export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
-  reducerPath: 'adminApi',
-  tagTypes: ['User'],
+const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    //! query<response, request>({})
-    getUser: builder.query<{ id: number }, string>({
+    getUser: builder.query<UserGetOneResponseDto, UserGetOneRequestDto>({
       query: (id) => `/general/user/${id}`,
       providesTags: ['User'],
     }),
   }),
 });
-export const { useGetUserQuery } = api;
+
+export const { useGetUserQuery } = userApi;

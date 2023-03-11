@@ -1,35 +1,28 @@
-import { Empty, TypedRequest } from '../contracts/Express/TypedRequest';
-import { TypedResponse } from '../contracts/Express/TypedResponse';
+import GenericApiResponse from '../contracts/express/GenericApiResponse';
+import { Empty, AppRequest } from '../contracts/express/TypedRequest';
+import { AppResponse } from '../contracts/express/TypedResponse';
 import {
   UserGetOneRequestDto,
   UserGetOneResponseDto,
-} from '../contracts/User/UserGetOneDto';
+} from '../contracts/user/UserGetOneDto';
+import 'express-async-errors';
+
 import User from '../models/User';
+import { NextFunction } from 'express';
 
 export const getUser = async (
-  req: TypedRequest<Empty, Empty, UserGetOneRequestDto>,
-  res: TypedResponse<UserGetOneResponseDto>
+  req: AppRequest<Empty, Empty, UserGetOneRequestDto>,
+  res: AppResponse<UserGetOneResponseDto>,
+  next: NextFunction
 ) => {
   try {
     const user: UserGetOneResponseDto | null = await User.findById(
       req.params.id
     );
-    if (!user)
-      return res.status(404).json({
-        success: false,
-        message: 'User not found',
-        data: user,
-      });
-    res.status(200).json({
-      success: true,
-      message: 'User found',
-      data: user,
-    });
+    if (!user) return GenericApiResponse.notFound(res, user);
+
+    return GenericApiResponse.ok(res, user);
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Server error',
-      data: error,
-    });
+    next(error);
   }
 };
