@@ -9,12 +9,16 @@ import {
   managementRouter,
   salesRouter,
   generalRouter,
+  transactionRouter as transactionsRouter,
 } from './routes/index';
 import config from './config';
 import { globalErrorHandler } from './helpers/errorHandler';
+import Transactions from './models/Transactions';
+import { dataTransaction } from './data';
 /* import { createMapper } from '@automapper/core';
 import { classes } from '@automapper/classes';
 
+import { dataTransaction } from './data';
 // Create and export the mapper
 export const mapper = createMapper({
     strategyInitializer: classes(),
@@ -42,6 +46,8 @@ app.use('/products', productRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
 app.use('/general', generalRouter);
+app.use('/transactions', transactionsRouter);
+
 app.use(globalErrorHandler);
 
 /* MONGOOSE */
@@ -58,6 +64,7 @@ mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
   User.insertMany(dataUser)
   Product.insertMany(dataProduct);
   ProductStat.insertMany(dataProductStat);
+  Transactions.insertMany(dataTransaction);
   */
 
   console.log('Connected to MongoDB');

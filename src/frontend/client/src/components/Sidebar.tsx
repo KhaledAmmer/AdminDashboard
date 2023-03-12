@@ -116,6 +116,7 @@ export default function Sidebar(props: SidebarProps) {
           width="100%"
           sx={{
             overflowY: 'scroll',
+            flex:1 
           }}
         >
           <List>
@@ -173,6 +174,7 @@ export default function Sidebar(props: SidebarProps) {
             })}
           </List>
         </Box>
+        {/* User Section */}
         {user && (
           <Box>
             <Divider />

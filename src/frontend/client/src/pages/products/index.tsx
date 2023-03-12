@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Box,
   Card,
@@ -10,10 +10,10 @@ import {
   Rating,
   useTheme,
   useMediaQuery,
-} from "@mui/material";
-import { useGetAllProductsQuery } from "src/api/product";
-import { ProductGetAllResponseDto } from "src/api/product/product.types";
-import Header from "src/components/Header";
+} from '@mui/material';
+import { useGetAllProductsQuery } from 'src/api/product';
+import { ProductGetAllResponseDto } from 'src/api/product/product.types';
+import Header from 'src/components/Header';
 
 const Product = ({
   _id,
@@ -23,16 +23,16 @@ const Product = ({
   rating,
   category,
   supply,
-}:ProductGetAllResponseDto) => {
+}: ProductGetAllResponseDto) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <Card
       sx={{
-        backgroundImage: "none",
+        backgroundImage: 'none',
         backgroundColor: theme.palette.background.paper,
-        borderRadius: "0.55rem",
+        borderRadius: '0.55rem',
       }}
     >
       <CardContent>
@@ -46,7 +46,7 @@ const Product = ({
         <Typography variant="h5" component="div">
           {name}
         </Typography>
-        <Typography sx={{ mb: "1.5rem" }} color={theme.palette.secondary[400]}>
+        <Typography sx={{ mb: '1.5rem' }} color={theme.palette.secondary[400]}>
           ${Number(price).toFixed(2)}
         </Typography>
         <Rating value={rating} readOnly />
@@ -67,8 +67,11 @@ const Product = ({
 };
 
 const Products = () => {
-    const { data, isError,isFetching, error } = useGetAllProductsQuery({ limit: 1000, page: 0 });
-    const isNonMobile = useMediaQuery("(min-width: 1000px)");
+  const { data, isError, isFetching, error } = useGetAllProductsQuery({
+    limit: 1000,
+    page: 0,
+  });
+  const isNonMobile = useMediaQuery('(min-width: 1000px)');
 
   return (
     <Box m="1.5rem 2.5rem">
@@ -82,19 +85,11 @@ const Products = () => {
           rowGap="20px"
           columnGap="1.33%"
           sx={{
-            "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+            '& > div': { gridColumn: isNonMobile ? undefined : 'span 4' },
           }}
         >
           {data?.data.map(
-            ({
-              _id,
-              name,
-              description,
-              price,
-              rating,
-              category,
-              supply,
-            }) => (
+            ({ _id, name, description, price, rating, category, supply }) => (
               <Product
                 key={_id}
                 _id={_id}
