@@ -1,5 +1,4 @@
 export type TransactionGetOneRequestDto = {
-    username: string;
-    cost: string;
-  };
-  
+  username: string;
+  cost: string;
+};

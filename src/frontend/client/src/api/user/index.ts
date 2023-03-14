@@ -8,7 +8,7 @@ const userApi = api.injectEndpoints({
       UserGetOneRequestDto
     >({
       query: (request) => `/general/user/${request.id}`,
-      providesTags: ['User'],
+      providesTags: [{ type: 'User', id: 'get-user' }],
     }),
   }),
 });

@@ -12,7 +12,7 @@ import {
   transactionRouter as transactionsRouter,
 } from './routes/index';
 import config from './config';
-import { globalErrorHandler } from './helpers/errorHandler';
+import { globalErrorHandler } from './middlewares/errorHandler';
 import Transactions from './models/Transactions';
 import { dataTransaction } from './data';
 /* import { createMapper } from '@automapper/core';

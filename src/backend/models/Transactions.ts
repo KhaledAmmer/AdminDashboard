@@ -3,7 +3,7 @@ import { IUser } from './User';
 
 export interface ITransactions extends Document {
   _id: string;
-  userId: IUser['_id']
+  userId: IUser['_id'];
   cost: string;
   products: {
     of: number;

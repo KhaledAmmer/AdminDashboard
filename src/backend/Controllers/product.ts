@@ -5,31 +5,26 @@ import { AppResponse } from '../contracts/express/TypedResponse';
 import { ProductGetAllResponseDto } from '../contracts/product/ProductGetAllResponseDto.types';
 import { ProductGetAllRequestDto } from '../contracts/product/ProductGetAllResquestDto.types';
 import { ProductGetOneResponseDto } from '../contracts/product/ProductGetOneDto';
+import { asyncWrapper } from '../middlewares/asyncWrapper';
 import Product, { IProduct } from '../models/Product';
 import ProductStat from '../models/ProductStat';
 
-export const allProducts = async (
+export const allProducts = asyncWrapper(async (
   req: AppRequest<Empty, ProductGetAllRequestDto, Empty>,
   res: AppResponse<ProductGetAllResponseDto>,
-  next: NextFunction
 ) => {
-  try {
     const products: Array<ProductGetAllResponseDto> | null =
       await Product.find().skip(req.query.page).limit(req.query.limit);
     if (!products) return GenericApiResponse.notFound(res, products);
 
     return GenericApiResponse.ok(res, products);
-  } catch (error) {
-    next(error);
-  }
-};
+});
 
-export const oneProduct = async (
-  req: AppRequest<Empty, Empty, { id: string }>,
-  res: AppResponse<ProductGetOneResponseDto>,
-  next: NextFunction
-) => {
-  try {
+export const oneProduct = asyncWrapper(
+  async (
+    req: AppRequest<Empty, Empty, { id: string }>,
+    res: AppResponse<ProductGetOneResponseDto>
+  ) => {
     const product: IProduct | null = await Product.findOne({
       _id: req.params.id,
     });
@@ -52,7 +47,5 @@ export const oneProduct = async (
     };
 
     return GenericApiResponse.ok(res, newP);
-  } catch (error) {
-    next(error);
   }
-};
+);

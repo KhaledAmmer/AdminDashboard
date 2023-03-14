@@ -116,7 +116,7 @@ export default function Sidebar(props: SidebarProps) {
           width="100%"
           sx={{
             overflowY: 'scroll',
-            flex:1 
+            flex: 1,
           }}
         >
           <List>

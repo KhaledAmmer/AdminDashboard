@@ -1,0 +1,95 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import { DataGrid, GridColDef, GridToolbarContainer } from '@mui/x-data-grid';
+import { useState } from 'react';
+import { UseTableReturnType } from './hooks/useTable';
+import { FlexBetween } from '../flexbox';
+import DataGridCustomToolbar from '../DataGridCustomToolbar ';
+
+declare module '@mui/x-data-grid' {
+  interface GridColDef {
+    metaData?: { [key: string]: any };
+  }
+}
+type StyledTableProps = {
+  total: number;
+  loading: boolean;
+  columns: GridColDef[];
+  rows: Array<Record<string, any>>;
+  useTableResults: UseTableReturnType<unknown>;
+};
+export default function StyledTable({
+  rows,
+  total,
+  columns,
+  loading,
+  useTableResults,
+}: StyledTableProps) {
+  const {
+    activePage,
+    rowsPerPage,
+    onActivePageChange,
+    onRowsPerPageChange,
+    handleSorting,
+  } = useTableResults;
+  const [search, setSearch] = useState("");
+
+  const [searchInput, setSearchInput] = useState("");
+
+
+  return (
+    <Box
+      sx={(theme) => ({
+        height:"70vh",
+        paddingTop:2,
+        '& .MuiDataGrid-root': {
+          border: 'none',
+        },
+        '& .MuiDataGrid-cell': {
+          borderBottom: 'none',
+        },
+        '& .MuiDataGrid-columnHeaders': {
+          backgroundColor: theme.palette.background.paper,
+          color: theme.palette.secondary[100],
+          borderBottom: 'none',
+        },
+        '& .MuiDataGrid-virtualScroller': {
+          backgroundColor: theme.palette.primary.light,
+        },
+        '& .MuiDataGrid-footerContainer': {
+          backgroundColor: theme.palette.background.paper,
+          color: theme.palette.secondary[100],
+          borderTop: 'none',
+        },
+        '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
+          color: `${theme.palette.secondary[200]} !important`,
+        },
+      })}
+    >
+      <DataGrid
+        getRowId={(row) => row._id}
+        loading={loading}
+        rowHeight={40}
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            page: activePage + 1,
+            pageSize: rowsPerPage,
+          },
+        }}
+        rowsPerPageOptions={[5, 10, 15]}
+        rowCount={total}
+        onPageChange={onActivePageChange}
+        onPageSizeChange={onRowsPerPageChange}
+        onSortModelChange={handleSorting}
+        paginationMode="server"
+        sortingMode="server"
+        components={{ Toolbar: DataGridCustomToolbar }}
+          componentsProps={{
+            toolbar: { searchInput, setSearchInput, setSearch },
+          }}
+      />
+    </Box>
+  );
+}

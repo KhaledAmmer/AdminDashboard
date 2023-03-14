@@ -9,8 +9,10 @@ export type GenericResponse<TPayload> = {
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   reducerPath: 'adminApi',
-  tagTypes: ['User', 'Product'],
+  tagTypes: ['User', 'Product','Transaction'],
   endpoints: (builder) => ({
     //! query<response, request>({})
   }),
 });
+
+export const invalidateCache =  api.util.invalidateTags; 

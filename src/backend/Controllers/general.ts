@@ -8,20 +8,18 @@ import {
 
 import User from '../models/User';
 import { NextFunction } from 'express';
+import { asyncWrapper } from '../middlewares/asyncWrapper';
 
-export const getUser = async (
-  req: AppRequest<Empty, Empty, UserGetOneRequestDto>,
-  res: AppResponse<UserGetOneResponseDto>,
-  next: NextFunction
-) => {
-  try {
+export const getUser = asyncWrapper(
+  async (
+    req: AppRequest<Empty, Empty, UserGetOneRequestDto>,
+    res: AppResponse<UserGetOneResponseDto>
+  ) => {
     const user: UserGetOneResponseDto | null = await User.findById(
       req.params.id
     );
     if (!user) return GenericApiResponse.notFound(res, user);
 
     return GenericApiResponse.ok(res, user);
-  } catch (error) {
-    next(error);
   }
-};
+);

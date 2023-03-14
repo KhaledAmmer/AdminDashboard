@@ -8,6 +8,7 @@ import { useMediaQuery } from '@mui/material';
 import Sidebar from '../Sidebar';
 import { useAppSelector } from 'src/hooks/redux';
 import { useGetUserQuery } from 'src/api/user';
+import { api } from 'src/api';
 
 const useStyles = makeStyles((theme: ThemeOptions) =>
   createStyles({
@@ -29,6 +30,7 @@ export default function Layout() {
     isFetching,
     error,
   } = useGetUserQuery({ id: userId });
+  
   return (
     <Box className={classes.root}>
       {isSidebarOpen && (

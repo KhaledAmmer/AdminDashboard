@@ -1,5 +1,5 @@
 export type PaginatingRequestDto<TPayload> = {
-  [key in keyof TPayload]: any;
+  [key in keyof TPayload]?: any;
 } & {
   limit: number;
   page: number;
