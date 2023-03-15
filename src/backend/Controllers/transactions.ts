@@ -22,7 +22,7 @@ export const allTransactions = asyncWrapper(
     const { limit, page, sortField, sortDirection, username, ...rest } =
       req.query;
     const filter = prepareSearchData<TransactionGetOneRequestDto>(rest);
-    const results = await Transactions.find({...filter})
+    const results = await Transactions.find({ ...filter })
       .populate({
         path: 'userId',
         select: 'name',

@@ -9,4 +9,3 @@ export type UserGetAllCustomersResponseDto = {
   phoneNumber: IUser['phoneNumber'];
   transactions: IUser['transactions'];
 };
-

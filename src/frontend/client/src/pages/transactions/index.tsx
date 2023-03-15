@@ -13,7 +13,7 @@ export const Transactions = () => {
     ...tableStates.filter,
     page: tableStates.activePage,
     limit: tableStates.rowsPerPage,
-    sortField:tableStates.sortFailed,
+    sortField: tableStates.sortFailed,
     sortDirection: tableStates.sortDirection,
   });
   const columns: GridColDef<TransactionGetOneResponseDto>[] = [

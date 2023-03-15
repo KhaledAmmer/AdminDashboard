@@ -13,57 +13,57 @@ export const Customers = () => {
     ...tableStates.filter,
     page: tableStates.activePage,
     limit: tableStates.rowsPerPage,
-    sortField:tableStates.sortFailed,
+    sortField: tableStates.sortFailed,
     sortDirection: tableStates.sortDirection,
   });
   const columns: GridColDef<TransactionGetOneResponseDto>[] = [
     {
-      field: "_id",
-      headerName: "ID",
+      field: '_id',
+      headerName: 'ID',
       flex: 1,
     },
     {
-      field: "name",
-      headerName: "Name",
+      field: 'name',
+      headerName: 'Name',
       flex: 0.5,
-      metaData:{
-        isSearchable:true,
-      }
+      metaData: {
+        isSearchable: true,
+      },
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: 'email',
+      headerName: 'Email',
       flex: 1,
-      metaData:{
-        isSearchable:true,
-      }
+      metaData: {
+        isSearchable: true,
+      },
     },
     {
-      field: "phoneNumber",
-      headerName: "Phone Number",
+      field: 'phoneNumber',
+      headerName: 'Phone Number',
       flex: 0.5,
       renderCell: (params) => {
-        return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3");
+        return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, '($1)$2-$3');
       },
-      metaData:{
-        isSearchable:true,
-      }
+      metaData: {
+        isSearchable: true,
+      },
     },
     {
-      field: "city",
-      headerName: "City",
+      field: 'city',
+      headerName: 'City',
       flex: 0.4,
-      metaData:{
-        isSearchable:true,
-      }
+      metaData: {
+        isSearchable: true,
+      },
     },
     {
-      field: "occupation",
-      headerName: "Occupation",
+      field: 'occupation',
+      headerName: 'Occupation',
       flex: 1,
-      metaData:{
-        isSearchable:true,
-      }
+      metaData: {
+        isSearchable: true,
+      },
     },
   ];
 

@@ -30,10 +30,14 @@ export const getUser = asyncWrapper(
 
 export const allCustomers = asyncWrapper(
   async (
-    req: AppRequest<Empty, PaginatingRequestDto<UserGetAllCustomersRequestDto>, Empty>,
+    req: AppRequest<
+      Empty,
+      PaginatingRequestDto<UserGetAllCustomersRequestDto>,
+      Empty
+    >,
     res: AppResponse<PaginatingResponseDto<UserGetAllCustomersResponseDto>>
   ) => {
-    const { limit, page, sortField, sortDirection, ...rest} = req.query;
+    const { limit, page, sortField, sortDirection, ...rest } = req.query;
     const filter = prepareSearchData<UserGetAllCustomersRequestDto>(rest);
     const results = await User.find({
       ...filter,
