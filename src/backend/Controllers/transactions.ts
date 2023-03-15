@@ -22,11 +22,10 @@ export const allTransactions = asyncWrapper(
     const { limit, page, sortField, sortDirection, username, ...rest } =
       req.query;
     const filter = prepareSearchData<TransactionGetOneRequestDto>(rest);
-    const results = await Transactions.find({})
+    const results = await Transactions.find({...filter})
       .populate({
         path: 'userId',
         select: 'name',
-        match: { name: { $regex: new RegExp(username, 'i') } },
       })
       .skip(page * limit)
       .limit(limit)

@@ -6,12 +6,12 @@ export interface IUser extends Document {
   name: string;
   email: string;
   password: string;
-  city?: string;
-  state?: string;
-  country?: string;
-  occupation?: string;
-  phoneNumber?: string;
-  transactions?: string[];
+  city: string;
+  state: string;
+  country: string;
+  occupation: string;
+  phoneNumber: string;
+  transactions: string[];
   role: string;
   createdAt: string;
   updatedAt: string;

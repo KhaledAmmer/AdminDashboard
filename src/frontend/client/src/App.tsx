@@ -15,6 +15,7 @@ import Layout from './components/layout';
 import './styles/global.css';
 import Products from './pages/products';
 import { Transactions } from './pages/transactions';
+import { Customers } from './pages/customers';
 
 function App() {
   const mode = useAppSelector((state) => state.global.mode);
@@ -29,7 +30,8 @@ function App() {
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/products" element={<Products />} />
-              <Route path="/transactions" element={<Transactions />} />
+              <Route path="/transaction" element={<Transactions />} />
+              <Route path="/customers" element={<Customers />} />
             </Route>
           </Routes>
         </ThemeProvider>

@@ -1,13 +1,13 @@
 import productRouter from './product';
 import managementRouter from './management';
 import salesRouter from './sales';
-import generalRouter from './general';
+import userRouter from './user';
 import transactionRouter from './transactions';
 
 export {
   productRouter,
   managementRouter,
   salesRouter,
-  generalRouter,
+  userRouter,
   transactionRouter,
 };

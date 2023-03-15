@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridToolbarContainer } from '@mui/x-data-grid';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { UseTableReturnType } from './hooks/useTable';
 import { FlexBetween } from '../flexbox';
 import DataGridCustomToolbar from '../DataGridCustomToolbar ';
@@ -9,13 +9,14 @@ import DataGridCustomToolbar from '../DataGridCustomToolbar ';
 declare module '@mui/x-data-grid' {
   interface GridColDef {
     metaData?: { [key: string]: any };
+    isSearchable?: boolean;
   }
 }
 type StyledTableProps = {
-  total: number;
+  total?: number;
   loading: boolean;
-  columns: GridColDef[];
-  rows: Array<Record<string, any>>;
+  columns?: GridColDef[];
+  rows?: Array<Record<string, any>>;
   useTableResults: UseTableReturnType<unknown>;
 };
 export default function StyledTable({
@@ -28,20 +29,25 @@ export default function StyledTable({
   const {
     activePage,
     rowsPerPage,
+    handelSearch,
     onActivePageChange,
     onRowsPerPageChange,
     handleSorting,
   } = useTableResults;
-  const [search, setSearch] = useState("");
 
-  const [searchInput, setSearchInput] = useState("");
-
+  const searchableHeaders = useMemo(() => {
+    return columns
+      ?.filter((item) => item.metaData?.isSearchable)
+      .map((item, index) => {
+        return { value: index, label: item.field };
+      });
+  }, [columns]);
 
   return (
     <Box
       sx={(theme) => ({
-        height:"70vh",
-        paddingTop:2,
+        height: '70vh',
+        paddingTop: 2,
         '& .MuiDataGrid-root': {
           border: 'none',
         },
@@ -70,15 +76,15 @@ export default function StyledTable({
         getRowId={(row) => row._id}
         loading={loading}
         rowHeight={40}
-        rows={rows}
-        columns={columns}
+        rows={rows ?? []}
+        columns={columns ?? []}
         initialState={{
           pagination: {
             page: activePage + 1,
             pageSize: rowsPerPage,
           },
         }}
-        rowsPerPageOptions={[5, 10, 15]}
+        rowsPerPageOptions={[10, 50, 100]}
         rowCount={total}
         onPageChange={onActivePageChange}
         onPageSizeChange={onRowsPerPageChange}
@@ -86,9 +92,9 @@ export default function StyledTable({
         paginationMode="server"
         sortingMode="server"
         components={{ Toolbar: DataGridCustomToolbar }}
-          componentsProps={{
-            toolbar: { searchInput, setSearchInput, setSearch },
-          }}
+        componentsProps={{
+          toolbar: { handelSearch, headers: searchableHeaders },
+        }}
       />
     </Box>
   );

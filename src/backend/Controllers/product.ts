@@ -9,16 +9,18 @@ import { asyncWrapper } from '../middlewares/asyncWrapper';
 import Product, { IProduct } from '../models/Product';
 import ProductStat from '../models/ProductStat';
 
-export const allProducts = asyncWrapper(async (
-  req: AppRequest<Empty, ProductGetAllRequestDto, Empty>,
-  res: AppResponse<ProductGetAllResponseDto>,
-) => {
+export const allProducts = asyncWrapper(
+  async (
+    req: AppRequest<Empty, ProductGetAllRequestDto, Empty>,
+    res: AppResponse<ProductGetAllResponseDto>
+  ) => {
     const products: Array<ProductGetAllResponseDto> | null =
       await Product.find().skip(req.query.page).limit(req.query.limit);
     if (!products) return GenericApiResponse.notFound(res, products);
 
     return GenericApiResponse.ok(res, products);
-});
+  }
+);
 
 export const oneProduct = asyncWrapper(
   async (

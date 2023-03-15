@@ -8,7 +8,7 @@ import {
   productRouter,
   managementRouter,
   salesRouter,
-  generalRouter,
+  userRouter,
   transactionRouter as transactionsRouter,
 } from './routes/index';
 import config from './config';
@@ -45,7 +45,7 @@ app.use(cors());
 app.use('/products', productRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
-app.use('/general', generalRouter);
+app.use('/user', userRouter);
 app.use('/transactions', transactionsRouter);
 
 app.use(globalErrorHandler);

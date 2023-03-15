@@ -1,5 +1,7 @@
-import { api, GenericResponse } from '..';
-import { UserGetOneRequestDto, UserGetOneResponseDto } from './user.types';
+import { api, GenericResponse, stringifyQuery } from '..';
+import { PaginatingRequestDto } from '../common/PaginableRequestDto';
+import { PaginatingResponseDto } from '../common/PaginatingResponseDto';
+import { UserGetAllCustomersRequestDto, UserGetAllCustomersResponseDto, UserGetOneRequestDto, UserGetOneResponseDto } from './user.types';
 
 const userApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -7,10 +9,17 @@ const userApi = api.injectEndpoints({
       GenericResponse<UserGetOneResponseDto>,
       UserGetOneRequestDto
     >({
-      query: (request) => `/general/user/${request.id}`,
+      query: (request) => `/user/${request.id}`,
       providesTags: [{ type: 'User', id: 'get-user' }],
     }),
+    allCustomers : builder.query<
+    GenericResponse<PaginatingResponseDto<UserGetAllCustomersResponseDto>>,
+    PaginatingRequestDto<UserGetAllCustomersRequestDto>
+  >({
+    query: (request) => `/user/customers/all${stringifyQuery(request)}`,
+    providesTags: [{ type: 'User', id: 'get-user' }],
+  }),
   }),
 });
 
-export const { useGetUserQuery } = userApi;
+export const { useGetUserQuery, useAllCustomersQuery } = userApi;

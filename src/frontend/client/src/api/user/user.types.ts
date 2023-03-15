@@ -18,3 +18,22 @@ export type UserGetAllResponseDto = Array<UserGetOneResponseDto>;
 export type UserGetOneRequestDto = {
   id: string;
 };
+
+export type UserGetAllCustomersResponseDto = {
+  _id: number;
+  email: string;
+  name: string;
+  city: string;
+  occupation: string;
+  phoneNumber: string;
+  transactions: string[];
+};
+
+export type UserGetAllCustomersRequestDto = {
+  email?: string;
+  name?: string;
+  city?: string;
+  occupation?: string;
+  phoneNumber?: string;
+  transactions?: string[];
+};

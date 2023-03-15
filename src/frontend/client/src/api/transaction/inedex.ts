@@ -1,4 +1,4 @@
-import { api, GenericResponse } from '..';
+import { api, GenericResponse, stringifyQuery } from '..';
 import { PaginatingRequestDto } from '../common/PaginableRequestDto';
 import { PaginatingResponseDto } from '../common/PaginatingResponseDto';
 import { TransactionGetAllResponseDto } from './transaction.types';
@@ -9,11 +9,7 @@ const productApi = api.injectEndpoints({
       GenericResponse<PaginatingResponseDto<TransactionGetAllResponseDto>>,
       PaginatingRequestDto<TransactionGetAllResponseDto>
     >({
-      query: ({ page, limit }) => ({
-        url: '/transactions',
-        method: 'GET',
-        params: { page, limit },
-      }),
+      query: (request) => `/transactions${stringifyQuery(request)}`,
       providesTags: ['Transaction'],
     }),
   }),

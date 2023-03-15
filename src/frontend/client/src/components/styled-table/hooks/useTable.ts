@@ -1,22 +1,25 @@
 import { GridSortModel } from '@mui/x-data-grid';
 import { useState } from 'react';
+import { SubmittedSearchHeader } from 'src/components/DataGridCustomToolbar ';
+
+export type FilterType<T> = { [key in keyof T]: any };
 export type UseTableReturnType<T> = {
-  onSearch: (searchValues: Array<{ [key: string]: unknown }>)=> void;
+  handelSearch: (searchValues: Array<SubmittedSearchHeader>) => void;
   onActivePageChange: (page: number) => void;
   handleSorting: (modal: GridSortModel) => void;
   onRowsPerPageChange: (pageRows: number) => void;
-  filter?: string;
   activePage: number;
   rowsPerPage: number;
   sortFailed?: keyof T;
-  direction: 'asc' | 'desc';
+  filter?: FilterType<T>;
+  sortDirection: 'asc' | 'desc';
 };
 export const useTable: <T>() => UseTableReturnType<T> = <T>() => {
   const [activePage, setActivePage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortFailed, setSortFailed] = useState<keyof T>();
   const [direction, setDirection] = useState<'asc' | 'desc'>('asc');
-  const [filter, setFilter] = useState();
+  const [filter, setFilter] = useState<FilterType<T>>();
 
   const onRowsPerPageChange = (pageRows: number) => {
     setRowsPerPage(pageRows);
@@ -33,12 +36,17 @@ export const useTable: <T>() => UseTableReturnType<T> = <T>() => {
     setActivePage(page);
   };
 
-  const onSearch = (searchValues: Array<{ [key: string]: unknown }>) => {
-    //
+  const handelSearch = (searchValues: Array<SubmittedSearchHeader>) => {
+    const newFilter = searchValues.reduce<FilterType<T>>((acc, item) => {
+      return { ...acc, [`${item.header}`]: item.value };
+    }, {} as FilterType<T>);
+
+    setFilter(newFilter);
+    setActivePage(0);
   };
 
   return {
-    onSearch,
+    handelSearch,
     onActivePageChange,
     handleSorting,
     onRowsPerPageChange,
@@ -46,6 +54,6 @@ export const useTable: <T>() => UseTableReturnType<T> = <T>() => {
     activePage,
     rowsPerPage,
     sortFailed,
-    direction,
+    sortDirection: direction,
   };
 };

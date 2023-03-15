@@ -30,7 +30,7 @@ export default function Layout() {
     isFetching,
     error,
   } = useGetUserQuery({ id: userId });
-  
+
   return (
     <Box className={classes.root}>
       {isSidebarOpen && (
