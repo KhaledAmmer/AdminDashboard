@@ -116,7 +116,7 @@ export default function Sidebar(props: SidebarProps) {
           width="100%"
           height="100%"
           sx={{
-           overflowY: 'auto',
+            overflowY: 'auto',
             flex: 1,
           }}
         >

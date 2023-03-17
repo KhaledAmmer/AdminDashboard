@@ -82,7 +82,7 @@ export default function StyledTable({
             pageSize: total ? rowsPerPage : undefined,
           },
         }}
-        rowsPerPageOptions={total ? [10, 50, 100]: []}
+        rowsPerPageOptions={total ? [10, 50, 100] : []}
         rowCount={total}
         onPageChange={onActivePageChange}
         onPageSizeChange={onRowsPerPageChange}

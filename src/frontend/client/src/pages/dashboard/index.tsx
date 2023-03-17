@@ -148,10 +148,7 @@ export default function Dashboard() {
         />
 
         {/* ROW 2 */}
-        <Box
-          gridColumn="span 8"
-          gridRow="span 3"
-        >
+        <Box gridColumn="span 8" gridRow="span 3">
           <StyledTable
             columns={columns}
             loading={isLoading || !data}
