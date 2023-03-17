@@ -1,13 +1,17 @@
 import express, { NextFunction } from 'express';
+import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
 import GenericApiResponse from '../contracts/express/GenericApiResponse';
 import { AppRequest, Empty } from '../contracts/express/TypedRequest';
 import { AppResponse } from '../contracts/express/TypedResponse';
+import { GetOverallStat } from '../contracts/product/GetOverallStat';
 import { ProductGetAllResponseDto } from '../contracts/product/ProductGetAllResponseDto.types';
 import { ProductGetAllRequestDto } from '../contracts/product/ProductGetAllResquestDto.types';
 import { ProductGetOneResponseDto } from '../contracts/product/ProductGetOneDto';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
+import OverallStat from '../models/OverallStat';
 import Product, { IProduct } from '../models/Product';
 import ProductStat from '../models/ProductStat';
+import Transactions from '../models/Transactions';
 
 export const allProducts = asyncWrapper(
   async (
@@ -51,3 +55,50 @@ export const oneProduct = asyncWrapper(
     return GenericApiResponse.ok(res, newP);
   }
 );
+
+export const getDashboardStats = asyncWrapper(
+  async (
+    req: AppRequest<Empty, Empty, Empty>,
+    res: AppResponse<PaginatingResponseDto<GetOverallStat>>
+  ) => {
+    // hardcoded values
+    const currentMonth = 'November';
+    const currentYear = 2021;
+    const currentDay = '2021-11-15';
+
+    /* Recent Transactions */
+    const transactions = await Transactions.find()
+      .limit(50)
+      .sort({ createdOn: -1 });
+
+    /* Overall Stats */
+    const overallStat = await OverallStat.find({ year: currentYear });
+
+    const {
+      totalCustomers,
+      yearlyTotalSoldUnits,
+      yearlySalesTotal,
+      monthlyData,
+      salesByCategory,
+    } = { ...overallStat[0] };
+
+    const thisMonthStats = overallStat[0].monthlyData.find(({ month }) => {
+      return month === currentMonth;
+    });
+
+    const todayStats = overallStat[0].dailyData.find(({ date }) => {
+      return date === currentDay;
+    });
+    return GenericApiResponse.ok(res, {
+      totalCustomers,
+      yearlyTotalSoldUnits,
+      yearlySalesTotal,
+      monthlyData,
+      salesByCategory,
+      thisMonthStats,
+      todayStats,
+      transactions
+    } as GetOverallStat);
+  }
+);
+

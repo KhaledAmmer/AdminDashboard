@@ -8,7 +8,7 @@ import DataGridCustomToolbar from '../DataGridCustomToolbar ';
 
 declare module '@mui/x-data-grid' {
   interface GridColDef {
-    metaData?: { [key: string]: any };
+    metaData?: { isSearchable?: boolean};
     isSearchable?: boolean;
   }
 }
@@ -46,8 +46,8 @@ export default function StyledTable({
   return (
     <Box
       sx={(theme) => ({
+        paddingTop: '2rem ',
         height: '70vh',
-        paddingTop: 2,
         '& .MuiDataGrid-root': {
           border: 'none',
         },
@@ -68,7 +68,7 @@ export default function StyledTable({
           borderTop: 'none',
         },
         '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
-          color: `${theme.palette.secondary[200]} !important`,
+          color: `${theme.palette.secondary[400]} !important`,
         },
       })}
     >

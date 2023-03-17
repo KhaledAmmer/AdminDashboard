@@ -10,10 +10,10 @@ const BreakdownChart = ({ isDashboard = false }: { isDashboard?: boolean }) => {
   if (!data?.data || isLoading) return <center>"Loading..."</center>;
 
   const colors = [
-    theme.palette.secondary[500],
     theme.palette.secondary[300],
-    theme.palette.secondary[300],
+    theme.palette.secondary[400],
     theme.palette.secondary[500],
+    theme.palette.secondary[600],
   ];
   const formattedData = Object.entries(data.data[0]!.salesByCategory).map(
     ([category, sales], i) => ({

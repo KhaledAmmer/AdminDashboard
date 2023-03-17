@@ -13,6 +13,8 @@ import {
 } from './routes/index';
 import config from './config';
 import { globalErrorHandler } from './middlewares/errorHandler';
+import AffiliateStat from './models/AffiliateStat';
+import { dataAffiliateStat } from './data';
 
 /* CONFIGURATION */
 const app = express();
@@ -43,12 +45,13 @@ mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
   }
 
   /* 
-   ! insert those once 
+  !!! insert those once 
   User.insertMany(dataUser)
   Product.insertMany(dataProduct);
   ProductStat.insertMany(dataProductStat);
   Transactions.insertMany(dataTransaction);
   OverAllStat.insertMany(dataOverallStat);
+  AffiliateStat.insertMany(dataAffiliateStat);
   */
 
   console.log('Connected to MongoDB');

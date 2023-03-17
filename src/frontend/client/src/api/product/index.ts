@@ -13,14 +13,14 @@ const productApi = api.injectEndpoints({
     >({
       query: (request) =>
         `/products?limit=${request.limit}&page=${request.page}`,
-      providesTags: ['Product'],
+      providesTags: [ {type:'Product' ,id: 'all-products' }],
     }),
     oneProduct: builder.query<
       GenericResponse<ProductGetOneResponseDto>,
       { id: number }
     >({
       query: (request) => `/products/${request.id}`,
-      providesTags: ['Product'],
+      providesTags: [ {type:'Product' ,id: 'one-product' }],
     }),
   }),
 });
