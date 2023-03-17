@@ -1,4 +1,4 @@
-import { ITransactions } from "../../models/Transactions";
+import { ITransactions } from '../../models/Transactions';
 
 export type GetOverallStat = {
   totalCustomers: number;

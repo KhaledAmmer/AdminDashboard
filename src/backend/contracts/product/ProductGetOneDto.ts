@@ -1,4 +1,4 @@
-import { IProductStat } from "../../models/ProductStat";
+import { IProductStat } from '../../models/ProductStat';
 
 export type ProductGetOneResponseDto = {
   _id: string;

@@ -61,8 +61,7 @@ export const getUserPerformance = asyncWrapper(
       },
     });
 
-    if (!getUserPerformance)
-      return GenericApiResponse.notFound(res, []);
+    if (!getUserPerformance) return GenericApiResponse.notFound(res, []);
 
     return GenericApiResponse.ok(res, getUserPerformance.affiliateSales);
   }

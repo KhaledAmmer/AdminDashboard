@@ -1,6 +1,9 @@
-import * as express  from 'express';
-import { allProducts, getDashboardStats, oneProduct } from '../controllers/product';
-
+import * as express from 'express';
+import {
+  allProducts,
+  getDashboardStats,
+  oneProduct,
+} from '../controllers/product';
 
 const productsRouter = express.Router();
 
