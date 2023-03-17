@@ -13,23 +13,8 @@ import {
 } from './routes/index';
 import config from './config';
 import { globalErrorHandler } from './middlewares/errorHandler';
-import Transactions from './models/Transactions';
-import { dataTransaction } from './data';
-/* import { createMapper } from '@automapper/core';
-import { classes } from '@automapper/classes';
 
-import { dataTransaction } from './data';
-// Create and export the mapper
-export const mapper = createMapper({
-    strategyInitializer: classes(),
-}); */
-/* 
-*! insert those once
-import { dataProduct, dataProductStat, dataUser } from './data';
-import Product from './models/Product';
-import ProductStat from './models/ProductStat';
-import User from './models/User';\
-*/
+
 
 /* CONFIGURATION */
 const app = express();
@@ -65,6 +50,7 @@ mongoose.connect(config.MONGODB_CONNECTION_STRING, (error) => {
   Product.insertMany(dataProduct);
   ProductStat.insertMany(dataProductStat);
   Transactions.insertMany(dataTransaction);
+  OverAllStat.insertMany(dataOverallStat);
   */
 
   console.log('Connected to MongoDB');

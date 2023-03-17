@@ -37,3 +37,9 @@ export type UserGetAllCustomersRequestDto = {
   phoneNumber?: string;
   transactions?: string[];
 };
+
+export type UsersGeographyGetResponseDto = {
+  id:string;
+  value:number
+ };
+ 

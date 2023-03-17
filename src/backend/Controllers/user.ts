@@ -13,6 +13,8 @@ import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto
 import { UserGetAllCustomersResponseDto } from '../contracts/user/UserGetAllCustomersResponseDto';
 import { UserGetAllCustomersRequestDto } from '../contracts/user/UserGetAllCustomersRequestDto';
 import { prepareSearchData } from '../helpers/preaperSearchData';
+import counterCodeConverter from 'iso-3166-1';
+import { UsersGeographyGetResponseDto } from '../contracts/user/UsersGeographyGetResponseDto';
 
 export const getUser = asyncWrapper(
   async (
@@ -57,5 +59,36 @@ export const allCustomers = asyncWrapper(
     };
 
     return GenericApiResponse.ok(res, response);
+  }
+);
+
+export const usersGeography = asyncWrapper(
+  async (
+    req: AppRequest<Empty, Empty, Empty>,
+    res: AppResponse<Array<UsersGeographyGetResponseDto>>
+  ) => {
+    const aggregatorOpts = [
+      {
+        $unwind: '$country',
+      },
+      {
+        $group: {
+          _id: '$country',
+          count: { $sum: 1 },
+        },
+      },
+    ];
+    const results = await User.aggregate(aggregatorOpts).exec();
+
+    const iso3Countries = results.map<UsersGeographyGetResponseDto>((country) => {
+      return {
+        id: counterCodeConverter.whereAlpha2(country._id)?.alpha3 ?? "Unknown",
+        value: country.count,
+      };
+    });
+
+    if (!results) return GenericApiResponse.notFound(res, iso3Countries);
+
+    return GenericApiResponse.ok(res, iso3Countries);
   }
 );
