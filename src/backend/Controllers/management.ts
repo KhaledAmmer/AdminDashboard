@@ -1,4 +1,3 @@
-
 import { PaginatingRequestDto } from '../contracts/common/PaginableRequestDto';
 import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
 import GenericApiResponse from '../contracts/express/GenericApiResponse';
@@ -9,7 +8,7 @@ import { UserGetAllCustomersResponseDto } from '../contracts/user/UserGetAllCust
 import { prepareSearchData } from '../helpers/preaperSearchData';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
 import AffiliateStat, { IAffiliateStat } from '../models/AffiliateStat';
-import  { ITransactions } from '../models/Transactions';
+import { ITransactions } from '../models/Transactions';
 import User from '../models/User';
 
 export const allAdmins = asyncWrapper(
@@ -51,15 +50,16 @@ export const getUserPerformance = asyncWrapper(
   ) => {
     const { id } = req.params;
 
-    const getUserPerformance = await AffiliateStat.findOne({ userId: id })
-      .populate({
-        path: 'affiliateSales',
-        select: '-updatedAt ',
-        populate: {
-          path: 'products userId',
-          select: 'price _id name',
-        },
-      });
+    const getUserPerformance = await AffiliateStat.findOne({
+      userId: id,
+    }).populate({
+      path: 'affiliateSales',
+      select: '-updatedAt ',
+      populate: {
+        path: 'products userId',
+        select: 'price _id name',
+      },
+    });
 
     if (!getUserPerformance)
       return GenericApiResponse.notFound(res, getUserPerformance);

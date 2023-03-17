@@ -151,31 +151,6 @@ export default function Dashboard() {
         <Box
           gridColumn="span 8"
           gridRow="span 3"
-          sx={{
-            '& .MuiDataGrid-root': {
-              border: 'none',
-              borderRadius: '5rem',
-            },
-            '& .MuiDataGrid-cell': {
-              borderBottom: 'none',
-            },
-            '& .MuiDataGrid-columnHeaders': {
-              backgroundColor: theme.palette.background.paper,
-              color: theme.palette.secondary[100],
-              borderBottom: 'none',
-            },
-            '& .MuiDataGrid-virtualScroller': {
-              backgroundColor: theme.palette.background.paper,
-            },
-            '& .MuiDataGrid-footerContainer': {
-              backgroundColor: theme.palette.background.paper,
-              color: theme.palette.secondary[100],
-              borderTop: 'none',
-            },
-            '& .MuiDataGrid-toolbarContainer .MuiButton-text': {
-              color: `${theme.palette.secondary[200]} !important`,
-            },
-          }}
         >
           <StyledTable
             columns={columns}

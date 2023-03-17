@@ -1,4 +1,4 @@
-import { TransactionGetOneRequestDto } from "../transaction/transaction.types";
+import { TransactionGetOneRequestDto } from '../transaction/transaction.types';
 
 export type ProductGetAllResponseDto = {
   _id: string;

@@ -88,6 +88,22 @@ export const tokensLight = reverseTokens(tokensDark);
 export const themeSettings = (mode: 'dark' | 'light'): ThemeOptions => {
   return {
     spacing: 0,
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          '&::-webkit-scrollbar': {
+            width: 10,
+          },
+          '&::-webkit-scrollbar-track': {
+            backgroundColor: tokensDark.secondary[500],
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: tokensDark.primary[300],
+            borderRadius: 2,
+          },
+        },
+      },
+    },
     palette: {
       mode: mode,
       ...(mode === 'dark'

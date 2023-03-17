@@ -114,8 +114,9 @@ export default function Sidebar(props: SidebarProps) {
         </Box>
         <Box
           width="100%"
+          height="100%"
           sx={{
-            overflowY: 'scroll',
+           overflowY: 'auto',
             flex: 1,
           }}
         >

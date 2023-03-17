@@ -24,13 +24,17 @@ const productApi = api.injectEndpoints({
       providesTags: [{ type: 'Product', id: 'one-product' }],
     }),
     getDashboardStats: builder.query<
-    GenericResponse<GetOverallStat>,
-    undefined
-  >({
-    query: (request) => `/products/getDashboardStats`,
-    providesTags: [{ type: 'Product', id: 'get-Dashboard-Stats' }],
-  }),
+      GenericResponse<GetOverallStat>,
+      undefined
+    >({
+      query: (request) => `/products/getDashboardStats`,
+      providesTags: [{ type: 'Product', id: 'get-Dashboard-Stats' }],
+    }),
   }),
 });
 
-export const { useGetAllProductsQuery, useOneProductQuery ,useGetDashboardStatsQuery} = productApi;
+export const {
+  useGetAllProductsQuery,
+  useOneProductQuery,
+  useGetDashboardStatsQuery,
+} = productApi;

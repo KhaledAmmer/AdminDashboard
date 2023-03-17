@@ -38,7 +38,7 @@ type Props = {
 };
 
 const DataGridCustomToolbar = ({ handelSearch, headers }: Props) => {
-  if(headers.length === 0) return <></>;
+  if (headers.length === 0) return <></>;
   const [searchInput, setSearchInput] = useState('');
   const [selectedHeaderValue, setSelectedHeaderValue] = useState(0);
   const [submittedSearchHeaders, setSubmittedSearchHeaders] = useState<

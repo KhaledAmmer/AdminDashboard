@@ -4,10 +4,10 @@ import { FlexBetween } from './flexbox';
 
 type Props = {
   title: string;
-  value :  number;
-  increase : string ;
+  value: number;
+  increase: string;
   icon: any;
-  description : string;
+  description: string;
 };
 
 const StatBox = ({ title, value, increase, icon, description }: Props) => {
