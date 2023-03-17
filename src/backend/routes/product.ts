@@ -1,15 +1,12 @@
-import express = require('express');
-import {
-  allProducts,
-  getDashboardStats,
-  oneProduct,
-} from '../controllers/product';
+import * as express  from 'express';
+import { allProducts, getDashboardStats, oneProduct } from '../controllers/product';
 
-const router = express.Router();
+
+const productsRouter = express.Router();
 
 /* GET METHODS */
-router.get('/', allProducts);
-router.get('/getDashboardStats', getDashboardStats);
-router.get('/:id', oneProduct);
+productsRouter.get('/', allProducts);
+productsRouter.get('/getDashboardStats', getDashboardStats);
+productsRouter.get('/:id', oneProduct);
 
-export default router;
+export default productsRouter;

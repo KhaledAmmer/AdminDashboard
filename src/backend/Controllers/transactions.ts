@@ -31,7 +31,7 @@ export const allTransactions = asyncWrapper(
       .limit(limit)
       .sort({ [`${sortField}`]: sortDirection });
 
-    if (!results) return GenericApiResponse.notFound(res, results);
+    if (!results) return GenericApiResponse.notFound(res, null);
 
     const count = await Transactions.count({ ...filter });
     const response: PaginatingResponseDto<TransactionGetAllResponseDto> = {

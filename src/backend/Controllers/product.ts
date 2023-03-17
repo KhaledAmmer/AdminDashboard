@@ -1,5 +1,3 @@
-import express, { NextFunction } from 'express';
-import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
 import GenericApiResponse from '../contracts/express/GenericApiResponse';
 import { AppRequest, Empty } from '../contracts/express/TypedRequest';
 import { AppResponse } from '../contracts/express/TypedResponse';
@@ -38,7 +36,7 @@ export const oneProduct = asyncWrapper(
       return GenericApiResponse.notFound(res, product, 'Product not found');
 
     const productStat = await ProductStat.findOne({ productId: req.params.id });
-    if (!productStat) return GenericApiResponse.notFound(res, productStat);
+    if (!productStat) return GenericApiResponse.notFound(res, null);
 
     /* TODO: USE AUTO MAPPER */
     const newP: ProductGetOneResponseDto = {

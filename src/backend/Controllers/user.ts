@@ -50,7 +50,7 @@ export const allCustomers = asyncWrapper(
       .limit(limit)
       .sort({ [`${sortField}`]: sortDirection });
 
-    if (!results) return GenericApiResponse.notFound(res, results);
+    if (!results) return GenericApiResponse.notFound(res, null);
 
     const count = await User.count({ ...filter, role: 'user' });
     const response: PaginatingResponseDto<UserGetAllCustomersResponseDto> = {

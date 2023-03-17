@@ -1,11 +1,11 @@
-import express = require('express');
+import * as express  from 'express';
 import { getUser, allCustomers, usersGeography } from '../controllers/user';
 
-const router = express.Router();
+const userRouter = express.Router();
 
 /* GET METHODS */
-router.get('/geography', usersGeography);
-router.get('/customers', allCustomers);
-router.get('/:id', getUser);
+userRouter.get('/geography', usersGeography);
+userRouter.get('/customers', allCustomers);
+userRouter.get('/:id', getUser);
 
-export default router;
+export default userRouter;

@@ -1,21 +1,17 @@
-import express = require('express');
-import bodyParser = require('body-parser');
-import morgan = require('morgan');
-import cors = require('cors');
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
+import * as morgan from 'morgan';
+import * as cors from 'cors';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
-import {
-  productRouter,
-  managementRouter,
-  salesRouter,
-  userRouter,
-  transactionRouter as transactionsRouter,
-} from './routes/index';
+import productRouter from './routes/product';
+import managementRouter from './routes/management';
+import salesRouter from './routes/sales';
+import userRouter from './routes/user';
+import transactionsRouter from './routes/transactions';
+
 import config from './config';
 import { globalErrorHandler } from './middlewares/errorHandler';
-import AffiliateStat from './models/AffiliateStat';
-import { dataAffiliateStat } from './data';
-
 /* CONFIGURATION */
 const app = express();
 app.use(express.json());

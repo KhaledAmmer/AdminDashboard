@@ -7,7 +7,7 @@ import { UserGetAllCustomersRequestDto } from '../contracts/user/UserGetAllCusto
 import { UserGetAllCustomersResponseDto } from '../contracts/user/UserGetAllCustomersResponseDto';
 import { prepareSearchData } from '../helpers/preaperSearchData';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
-import AffiliateStat, { IAffiliateStat } from '../models/AffiliateStat';
+import AffiliateStat from '../models/AffiliateStat';
 import { ITransactions } from '../models/Transactions';
 import User from '../models/User';
 
@@ -31,7 +31,7 @@ export const allAdmins = asyncWrapper(
       .limit(limit)
       .sort({ [`${sortField}`]: sortDirection });
 
-    if (!results) return GenericApiResponse.notFound(res, results);
+    if (!results) return GenericApiResponse.notFound(res, null);
 
     const count = await User.count({ ...filter, role: 'user' });
     const response: PaginatingResponseDto<UserGetAllCustomersResponseDto> = {
@@ -62,7 +62,7 @@ export const getUserPerformance = asyncWrapper(
     });
 
     if (!getUserPerformance)
-      return GenericApiResponse.notFound(res, getUserPerformance);
+      return GenericApiResponse.notFound(res, []);
 
     return GenericApiResponse.ok(res, getUserPerformance.affiliateSales);
   }

@@ -1,9 +1,9 @@
-import express = require('express');
+import * as express  from 'express';
 import { allTransactions } from '../controllers/transactions';
 
-const router = express.Router();
+const transactionsRouter = express.Router();
 
 /* GET METHODS */
-router.get('/', allTransactions);
+transactionsRouter.get('/', allTransactions);
 
-export default router;
+export default transactionsRouter;

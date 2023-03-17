@@ -1,7 +1,7 @@
-import express = require('express');
+import * as express  from 'express';
 import { getSales } from '../controllers/sales';
 
-const router = express.Router();
+const salesRouter = express.Router();
 
-router.get('/', getSales);
-export default router;
+salesRouter.get('/', getSales);
+export default salesRouter;

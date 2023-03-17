@@ -1,4 +1,4 @@
-import { IUser } from 'src/backend/models/User';
+import { IUser } from "../../models/User";
 
 export type UserGetOneRequestDto = {
   id: string;
