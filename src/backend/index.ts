@@ -14,7 +14,6 @@ import {
 import config from './config';
 import { globalErrorHandler } from './middlewares/errorHandler';
 
-
 /* CONFIGURATION */
 const app = express();
 app.use(express.json());

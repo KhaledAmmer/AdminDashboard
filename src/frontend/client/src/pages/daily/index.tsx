@@ -119,7 +119,7 @@ const Daily = () => {
             curve="catmullRom"
             axisTop={null}
             axisRight={null}
-           axisBottom={{
+            axisBottom={{
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 90,
@@ -143,7 +143,7 @@ const Daily = () => {
             pointBorderColor={{ from: 'serieColor' }}
             pointLabelYOffset={-12}
             useMesh={true}
-             legends={[
+            legends={[
               {
                 anchor: 'top-right',
                 direction: 'column',
@@ -168,7 +168,7 @@ const Daily = () => {
                   },
                 ],
               },
-            ]} 
+            ]}
           />
         ) : (
           <>Loading...</>

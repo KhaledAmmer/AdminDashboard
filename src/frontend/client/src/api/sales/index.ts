@@ -7,8 +7,7 @@ const salesApi = api.injectEndpoints({
       GenericResponse<Array<SalesGetAllResponseDto>>,
       undefined
     >({
-      query: (request) =>
-        `/sales`,
+      query: (request) => `/sales`,
       providesTags: ['OverAllStat'],
     }),
   }),

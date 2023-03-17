@@ -14,7 +14,7 @@ const Overview = () => {
         subtitle="Overview of general revenue and profit"
       />
       <Box height="70vh">
-        <FormControl sx={{ mt: '1rem', }}>
+        <FormControl sx={{ mt: '1rem' }}>
           <InputLabel>View</InputLabel>
           <Select
             value={view}

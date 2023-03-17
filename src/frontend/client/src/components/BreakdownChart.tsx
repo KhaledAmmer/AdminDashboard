@@ -1,9 +1,9 @@
-import React from "react";
-import { Box, Typography, useTheme } from "@mui/material";
-import { useGetSalesQuery } from "src/api/sales";
-import { ResponsivePie } from "@nivo/pie";
+import React from 'react';
+import { Box, Typography, useTheme } from '@mui/material';
+import { useGetSalesQuery } from 'src/api/sales';
+import { ResponsivePie } from '@nivo/pie';
 
-const BreakdownChart = ({ isDashboard = false }: {isDashboard?: boolean}) => {
+const BreakdownChart = ({ isDashboard = false }: { isDashboard?: boolean }) => {
   const { data, isLoading } = useGetSalesQuery(undefined);
   const theme = useTheme();
 
@@ -26,10 +26,10 @@ const BreakdownChart = ({ isDashboard = false }: {isDashboard?: boolean}) => {
 
   return (
     <Box
-      height={isDashboard ? "400px" : "100%"}
+      height={isDashboard ? '400px' : '100%'}
       width={undefined}
-      minHeight={isDashboard ? "325px" : undefined}
-      minWidth={isDashboard ? "325px" : undefined}
+      minHeight={isDashboard ? '325px' : undefined}
+      minWidth={isDashboard ? '325px' : undefined}
       position="relative"
     >
       <ResponsivePie
@@ -67,7 +67,7 @@ const BreakdownChart = ({ isDashboard = false }: {isDashboard?: boolean}) => {
             },
           },
         }}
-        colors={{ datum: "data.color" }}
+        colors={{ datum: 'data.color' }}
         margin={
           isDashboard
             ? { top: 40, right: 80, bottom: 100, left: 50 }
@@ -78,36 +78,36 @@ const BreakdownChart = ({ isDashboard = false }: {isDashboard?: boolean}) => {
         activeOuterRadiusOffset={8}
         borderWidth={1}
         borderColor={{
-          from: "color",
-          modifiers: [["darker", 0.2]],
+          from: 'color',
+          modifiers: [['darker', 0.2]],
         }}
         enableArcLinkLabels={!isDashboard}
         arcLinkLabelsTextColor={theme.palette.secondary[200]}
         arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: "color" }}
+        arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{
-          from: "color",
-          modifiers: [["darker", 2]],
+          from: 'color',
+          modifiers: [['darker', 2]],
         }}
         legends={[
           {
-            anchor: "bottom",
-            direction: "row",
+            anchor: 'bottom',
+            direction: 'row',
             justify: false,
             translateX: isDashboard ? 20 : 0,
             translateY: isDashboard ? 50 : 56,
             itemsSpacing: 0,
             itemWidth: 85,
             itemHeight: 18,
-            itemTextColor: "#999",
-            itemDirection: "left-to-right",
+            itemTextColor: '#999',
+            itemDirection: 'left-to-right',
             itemOpacity: 1,
             symbolSize: 18,
-            symbolShape: "circle",
+            symbolShape: 'circle',
             effects: [
               {
-                on: "hover",
+                on: 'hover',
                 style: {
                   itemTextColor: theme.palette.primary[500],
                 },
@@ -124,12 +124,12 @@ const BreakdownChart = ({ isDashboard = false }: {isDashboard?: boolean}) => {
         textAlign="center"
         sx={{
           transform: isDashboard
-            ? "translate(-75%, -170%)"
-            : "translate(-50%, -100%)",
+            ? 'translate(-75%, -170%)'
+            : 'translate(-50%, -100%)',
         }}
       >
         <Typography variant="h6">
-          {!isDashboard && "Total:"} ${data.data[0].yearlySalesTotal}
+          {!isDashboard && 'Total:'} ${data.data[0].yearlySalesTotal}
         </Typography>
       </Box>
     </Box>

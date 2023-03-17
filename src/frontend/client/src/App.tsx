@@ -22,7 +22,6 @@ import Daily from './pages/daily';
 import Monthly from './pages/monthly';
 import Breakdown from './pages/breakdown';
 
-
 function App() {
   const mode = useAppSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
