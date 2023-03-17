@@ -5,6 +5,7 @@ import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto
 import GenericApiResponse from '../contracts/express/GenericApiResponse';
 import { AppRequest, Empty } from '../contracts/express/TypedRequest';
 import { AppResponse } from '../contracts/express/TypedResponse';
+import { GetUserPerformanceDto } from '../contracts/user/GetUserPerformanceDto';
 import { UserGetAllCustomersRequestDto } from '../contracts/user/UserGetAllCustomersRequestDto';
 import { UserGetAllCustomersResponseDto } from '../contracts/user/UserGetAllCustomersResponseDto';
 import { prepareSearchData } from '../helpers/preaperSearchData';
@@ -47,28 +48,32 @@ export const allAdmins = asyncWrapper(
 
 export const getUserPerformance = asyncWrapper(
   async (
-    req: AppRequest<
-      Empty,
-      Empty,
-      { id: string }
-    >,
-    res: AppResponse<IAffiliateStat>
+    req: AppRequest<Empty, Empty, { id: string }>,
+    res: AppResponse<GetUserPerformanceDto>
   ) => {
     const { id } = req.params;
 
-    const getUserPerformance = await AffiliateStat.findOne({ userId: id }).populate({
-      path: 'affiliateSales',
-      select: "-updatedAt ",
-      populate:{
-        path :"products",
-        select: 'price _id name'
-      }
-    }).populate({
-        path:"userId",
-        select:"name"
-    });
-    if (!getUserPerformance) return GenericApiResponse.notFound(res, getUserPerformance);
+    const getUserPerformance = await AffiliateStat.findOne({ userId: id })
+      .populate({
+        path: 'affiliateSales',
+        select: '-updatedAt ',
+        populate: {
+          path: 'products',
+          select: 'price _id name',
+        },
+      })
+      .populate({
+        path: 'userId',
+        select: 'name',
+      });
+    if (!getUserPerformance)
+      return GenericApiResponse.notFound(res, getUserPerformance);
 
-    return GenericApiResponse.ok(res, getUserPerformance);
+    const resBody: GetUserPerformanceDto = {
+      _id: getUserPerformance.id,
+      username: getUserPerformance.userId,
+      affiliateSales: getUserPerformance.affiliateSales,
+    };
+    return GenericApiResponse.ok(res, resBody);
   }
 );

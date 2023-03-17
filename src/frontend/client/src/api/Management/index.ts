@@ -1,8 +1,10 @@
 import { api, GenericResponse, stringifyQuery } from '..';
 import { PaginatingRequestDto } from '../common/PaginableRequestDto';
 import { PaginatingResponseDto } from '../common/PaginatingResponseDto';
-import { UserGetAllCustomersRequestDto as UserGetAllAdminsRequestDto , UserGetAllCustomersResponseDto as UserGetAllAdminsResponseDto } from '../user/user.types';
-
+import {
+  UserGetAllCustomersRequestDto as UserGetAllAdminsRequestDto,
+  UserGetAllCustomersResponseDto as UserGetAllAdminsResponseDto,
+} from '../user/user.types';
 
 const managementApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -16,4 +18,4 @@ const managementApi = api.injectEndpoints({
   }),
 });
 
-export const {useAllAdminsQuery} = managementApi;
+export const { useAllAdminsQuery } = managementApi;

@@ -1,7 +1,7 @@
-import { ITransactions } from "src/backend/models/Transactions";
+import { ITransactions } from 'src/backend/models/Transactions';
 
 export type GetUserPerformanceDto = {
-    _id: string;
-    username: string;
-    affiliateSales: Array<ITransactions>;
-  }
+  _id: string;
+  username: {_id:string , name:string};
+  affiliateSales: Array<ITransactions>;
+};

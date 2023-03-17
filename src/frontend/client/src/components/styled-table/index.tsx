@@ -8,7 +8,7 @@ import DataGridCustomToolbar from '../DataGridCustomToolbar ';
 
 declare module '@mui/x-data-grid' {
   interface GridColDef {
-    metaData?: { isSearchable?: boolean};
+    metaData?: { isSearchable?: boolean };
     isSearchable?: boolean;
   }
 }

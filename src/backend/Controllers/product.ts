@@ -16,7 +16,7 @@ import Transactions from '../models/Transactions';
 export const allProducts = asyncWrapper(
   async (
     req: AppRequest<Empty, ProductGetAllRequestDto, Empty>,
-    res: AppResponse<ProductGetAllResponseDto>
+    res: AppResponse< Array<ProductGetAllResponseDto>>
   ) => {
     const products: Array<ProductGetAllResponseDto> | null =
       await Product.find().skip(req.query.page).limit(req.query.limit);
@@ -59,7 +59,7 @@ export const oneProduct = asyncWrapper(
 export const getDashboardStats = asyncWrapper(
   async (
     req: AppRequest<Empty, Empty, Empty>,
-    res: AppResponse<PaginatingResponseDto<GetOverallStat>>
+    res: AppResponse<GetOverallStat>
   ) => {
     // hardcoded values
     const currentMonth = 'November';
@@ -97,8 +97,7 @@ export const getDashboardStats = asyncWrapper(
       salesByCategory,
       thisMonthStats,
       todayStats,
-      transactions
+      transactions,
     } as GetOverallStat);
   }
 );
-

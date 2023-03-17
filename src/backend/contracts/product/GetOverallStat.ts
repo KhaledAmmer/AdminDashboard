@@ -1,4 +1,4 @@
-import { ITransactions } from "src/backend/models/Transactions";
+import { ITransactions } from 'src/backend/models/Transactions';
 
 export type GetOverallStat = {
   totalCustomers: number;
@@ -22,5 +22,5 @@ export type GetOverallStat = {
     totalSales: number;
     totalUnits: number;
   };
-  transactions:Array<ITransactions>
+  transactions: Array<ITransactions>;
 };
