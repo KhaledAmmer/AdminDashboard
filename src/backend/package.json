@@ -1,15 +1,10 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "license": "MIT",
-  "engines": {
-    "node": ">=16.8.1",
-    "yarn": ">=1.22.19",
-    "npm": "please-use-yarn"
-  },
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.ts",
     "dev": "nodemon index.ts"
   },
   "dependencies": {
