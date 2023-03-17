@@ -80,12 +80,15 @@ export const usersGeography = asyncWrapper(
     ];
     const results = await User.aggregate(aggregatorOpts).exec();
 
-    const iso3Countries = results.map<UsersGeographyGetResponseDto>((country) => {
-      return {
-        id: counterCodeConverter.whereAlpha2(country._id)?.alpha3 ?? "Unknown",
-        value: country.count,
-      };
-    });
+    const iso3Countries = results.map<UsersGeographyGetResponseDto>(
+      (country) => {
+        return {
+          id:
+            counterCodeConverter.whereAlpha2(country._id)?.alpha3 ?? 'Unknown',
+          value: country.count,
+        };
+      }
+    );
 
     if (!results) return GenericApiResponse.notFound(res, iso3Countries);
 

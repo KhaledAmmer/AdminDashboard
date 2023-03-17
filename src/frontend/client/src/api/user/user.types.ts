@@ -39,7 +39,6 @@ export type UserGetAllCustomersRequestDto = {
 };
 
 export type UsersGeographyGetResponseDto = {
-  id:string;
-  value:number
- };
- 
+  id: string;
+  value: number;
+};

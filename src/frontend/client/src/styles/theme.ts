@@ -87,6 +87,7 @@ export const tokensLight = reverseTokens(tokensDark);
 
 export const themeSettings = (mode: 'dark' | 'light'): ThemeOptions => {
   return {
+    spacing: 0,
     palette: {
       mode: mode,
       ...(mode === 'dark'
