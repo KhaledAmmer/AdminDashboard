@@ -2,6 +2,7 @@ import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 import React from 'react';
 import { TransactionGetOneResponseDto } from 'src/api/transaction/transaction.types';
 import { useAllCustomersQuery } from 'src/api/user';
+import { UserGetAllCustomersResponseDto } from 'src/api/user/user.types';
 import Header from 'src/components/Header';
 import { PageContainer } from 'src/components/PageContainer';
 import StyledTable from 'src/components/styled-table';
@@ -16,7 +17,7 @@ export const Customers = () => {
     sortField: tableStates.sortFailed,
     sortDirection: tableStates.sortDirection,
   });
-  const columns: GridColDef<TransactionGetOneResponseDto>[] = [
+  const columns: GridColDef<UserGetAllCustomersResponseDto>[] = [
     {
       field: '_id',
       headerName: 'ID',

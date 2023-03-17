@@ -1,3 +1,5 @@
+import { TransactionGetOneResponseDto } from '../transaction/transaction.types';
+
 export type UserGetOneResponseDto = {
   _id: number;
   email: string;

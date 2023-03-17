@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { DataGrid, GridColDef, GridToolbarContainer } from '@mui/x-data-grid';
-import { useMemo, useState } from 'react';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { useMemo } from 'react';
 import { UseTableReturnType } from './hooks/useTable';
-import { FlexBetween } from '../flexbox';
 import DataGridCustomToolbar from '../DataGridCustomToolbar ';
 
 declare module '@mui/x-data-grid' {
@@ -46,7 +45,6 @@ export default function StyledTable({
   return (
     <Box
       sx={(theme) => ({
-        paddingTop: '2rem ',
         height: '70vh',
         '& .MuiDataGrid-root': {
           border: 'none',
@@ -80,11 +78,11 @@ export default function StyledTable({
         columns={columns ?? []}
         initialState={{
           pagination: {
-            page: activePage + 1,
-            pageSize: rowsPerPage,
+            page: total ? activePage + 1 : undefined,
+            pageSize: total ? rowsPerPage : undefined,
           },
         }}
-        rowsPerPageOptions={[10, 50, 100]}
+        rowsPerPageOptions={total ? [10, 50, 100]: []}
         rowCount={total}
         onPageChange={onActivePageChange}
         onPageSizeChange={onRowsPerPageChange}

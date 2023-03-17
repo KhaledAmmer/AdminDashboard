@@ -16,7 +16,7 @@ import Transactions from '../models/Transactions';
 export const allProducts = asyncWrapper(
   async (
     req: AppRequest<Empty, ProductGetAllRequestDto, Empty>,
-    res: AppResponse< Array<ProductGetAllResponseDto>>
+    res: AppResponse<Array<ProductGetAllResponseDto>>
   ) => {
     const products: Array<ProductGetAllResponseDto> | null =
       await Product.find().skip(req.query.page).limit(req.query.limit);

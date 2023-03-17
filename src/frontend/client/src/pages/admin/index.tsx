@@ -1,13 +1,13 @@
-import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { GridColDef } from '@mui/x-data-grid';
 import React from 'react';
-import { useAllAdminsQuery } from 'src/api/Management';
-import { TransactionGetOneResponseDto } from 'src/api/transaction/transaction.types';
+import { useAllAdminsQuery } from 'src/api/management';
+import { UserGetOneResponseDto } from 'src/api/user/user.types';
 import Header from 'src/components/Header';
 import { PageContainer } from 'src/components/PageContainer';
 import StyledTable from 'src/components/styled-table';
 import { useTable } from 'src/components/styled-table/hooks/useTable';
 
-export const Admins = () => {
+export default function Admins() {
   const tableStates = useTable();
   const { data, isFetching } = useAllAdminsQuery({
     ...tableStates.filter,
@@ -16,7 +16,7 @@ export const Admins = () => {
     sortField: tableStates.sortFailed,
     sortDirection: tableStates.sortDirection,
   });
-  const columns: GridColDef<TransactionGetOneResponseDto>[] = [
+  const columns: GridColDef<UserGetOneResponseDto>[] = [
     {
       field: '_id',
       headerName: 'ID',
@@ -87,4 +87,4 @@ export const Admins = () => {
       />
     </PageContainer>
   );
-};
+}

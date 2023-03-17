@@ -2,28 +2,40 @@ import { Response } from 'express';
 import { AppResponse } from './TypedResponse';
 
 export default class GenericApiResponse {
-  static ok<ResBody>(res: AppResponse<ResBody>, body: ResBody): AppResponse<ResBody> {
+  static ok<ResBody>(
+    res: AppResponse<ResBody>,
+    body: ResBody
+  ): AppResponse<ResBody> {
     return res.status(200).json({
       success: true,
       message: 'Succeed',
       data: body,
     });
   }
-  static updated<ResBody>(res: AppResponse<ResBody>, body: ResBody): AppResponse<ResBody> {
+  static updated<ResBody>(
+    res: AppResponse<ResBody>,
+    body: ResBody
+  ): AppResponse<ResBody> {
     return res.status(200).json({
       success: true,
       message: 'Updated successfully',
       data: body,
     });
   }
-  static deleted<ResBody>(res: AppResponse<ResBody>, body: ResBody): AppResponse<ResBody> {
+  static deleted<ResBody>(
+    res: AppResponse<ResBody>,
+    body: ResBody
+  ): AppResponse<ResBody> {
     return res.status(200).json({
       success: true,
       message: 'Deleted successfully',
       data: body,
     });
   }
-  static created<ResBody>(res: AppResponse<ResBody>, body: ResBody): AppResponse<ResBody> {
+  static created<ResBody>(
+    res: AppResponse<ResBody>,
+    body: ResBody
+  ): AppResponse<ResBody> {
     return res.status(201).json({
       success: true,
       message: 'Created successfully',
