@@ -1,5 +1,5 @@
-import { IProduct } from "../../models/Product";
-import { IUser } from "../../models/User";
+import { IProduct } from '../../models/Product';
+import { IUser } from '../../models/User';
 
 export type TransactionGetOneResponseDto = {
   _id: string;

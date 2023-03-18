@@ -23,11 +23,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 /* Routes */
-app.use('/products', productRouter);
+app.use('/user', userRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
-app.use('/user', userRouter);
 app.use('/transactions', transactionsRouter);
+app.use('/products', productRouter);
 
 app.use(globalErrorHandler);
 
