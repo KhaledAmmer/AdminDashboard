@@ -1,7 +1,7 @@
-import { UserGetAllCustomersRequestDto } from 'contracts/user/UserGetAllCustomersRequestDto';
-import { UserGetAllCustomersResponseDto } from 'contracts/user/UserGetAllCustomersResponseDto';
-import { PaginatingRequestDto } from '../contracts/common/PaginableRequestDto';
-import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
+import { UserGetAllCustomersRequestDto } from 'contracts/user/user-get-all-customers-request-dto';
+import { UserGetAllCustomersResponseDto } from 'contracts/user/user-get-all-customers-response-dto';
+import { PaginatingRequestDto } from '../contracts/common/paginable-request-dto';
+import { PaginatingResponseDto } from '../contracts/common/paginating-response-dto';
 import GenericApiResponse from '../contracts/Express/generic-api-response';
 import { AppRequest, Empty } from '../contracts/Express/typed-request';
 import { AppResponse } from '../contracts/Express/typed-response';

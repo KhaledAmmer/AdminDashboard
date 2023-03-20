@@ -1,11 +1,11 @@
 import { NextFunction } from 'express';
-import { PaginatingRequestDto } from '../contracts/common/PaginableRequestDto';
-import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
+import { PaginatingRequestDto } from '../contracts/common/paginable-request-dto';
+import { PaginatingResponseDto } from '../contracts/common/paginating-response-dto';
 import GenericApiResponse from '../contracts/Express/generic-api-response';
 import { AppRequest, Empty } from '../contracts/Express/typed-request';
 import { AppResponse } from '../contracts/Express/typed-response';
-import { TransactionGetAllResponseDto } from '../contracts/transaction/TransactionGetAllResponseDto';
-import { TransactionGetOneRequestDto } from '../contracts/transaction/TransactionGetRequestDto';
+import { TransactionGetAllResponseDto } from '../contracts/transaction/transaction-get-all-response-dto';
+import { TransactionGetOneRequestDto } from '../contracts/transaction/transaction-get-request-dto';
 import { prepareSearchData } from '../helpers/preaperSearchData';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
 import Transactions from '../models/Transactions';

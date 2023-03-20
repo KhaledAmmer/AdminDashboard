@@ -4,17 +4,17 @@ import { AppResponse } from '../contracts/Express/typed-response';
 import {
   UserGetOneRequestDto,
   UserGetOneResponseDto,
-} from '../contracts/user/UserGetOneDto';
+} from '../contracts/user/user-get-one-dto';
 
 import User from '../models/User';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
-import { PaginatingRequestDto } from '../contracts/common/PaginableRequestDto';
-import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
-import { UserGetAllCustomersResponseDto } from '../contracts/user/UserGetAllCustomersResponseDto';
-import { UserGetAllCustomersRequestDto } from '../contracts/user/UserGetAllCustomersRequestDto';
+import { PaginatingRequestDto } from '../contracts/common/paginable-request-dto';
+import { PaginatingResponseDto } from '../contracts/common/paginating-response-dto';
+import { UserGetAllCustomersResponseDto } from '../contracts/user/user-get-all-customers-response-dto';
+import { UserGetAllCustomersRequestDto } from '../contracts/user/user-get-all-customers-request-dto';
 import { prepareSearchData } from '../helpers/preaperSearchData';
 import counterCodeConverter from 'iso-3166-1';
-import { UsersGeographyGetResponseDto } from '../contracts/user/UsersGeographyGetResponseDto';
+import { UsersGeographyGetResponseDto } from '../contracts/user/users-geography-get-response-dto';
 
 export const getUser = asyncWrapper(
   async (

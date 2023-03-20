@@ -1,10 +1,10 @@
 import GenericApiResponse from 'contracts/Express/generic-api-response';
 import { AppRequest, Empty } from 'contracts/Express/typed-request';
 import { AppResponse } from '../contracts/Express/typed-response';
-import { GetOverallStat } from '../contracts/product/GetOverallStat';
-import { ProductGetAllResponseDto } from '../contracts/product/ProductGetAllResponseDto.types';
-import { ProductGetAllRequestDto } from '../contracts/product/ProductGetAllResquestDto.types';
-import { ProductGetOneResponseDto } from '../contracts/product/ProductGetOneDto';
+import { GetOverallStat } from '../contracts/product/get-overall-stat';
+import { ProductGetAllResponseDto } from '../contracts/product/product-get-all-response-dto.types';
+import { ProductGetAllRequestDto } from '../contracts/product/product-get-all-resquest-dto.types';
+import { ProductGetOneResponseDto } from '../contracts/product/product-get-one-dto';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
 import OverallStat from '../models/OverallStat';
 import Product, { IProduct } from '../models/Product';
