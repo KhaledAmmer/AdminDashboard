@@ -1,5 +1,5 @@
 import { NextFunction, Response, Request } from 'express';
-import GenericApiResponse from '../contracts/express/GenericApiResponse';
+import GenericApiResponse from '../contracts/Express/generic-api-response';
 
 export const globalErrorHandler = (
   err: Error,

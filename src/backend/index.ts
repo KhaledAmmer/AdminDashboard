@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import morgan from 'morgan';
-import cors from 'cors';
+import * as  morgan from 'morgan';
+import * as  cors from 'cors';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 import productRouter from './routes/product';
@@ -27,7 +27,7 @@ app.use('/user', userRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
 app.use('/transactions', transactionsRouter);
-//app.use('/products', productRouter);
+app.use('/products', productRouter);
 
 app.use(globalErrorHandler);
 

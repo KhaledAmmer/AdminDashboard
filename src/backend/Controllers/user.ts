@@ -1,6 +1,6 @@
-import GenericApiResponse from '../contracts/express/GenericApiResponse';
-import { Empty, AppRequest } from '../contracts/express/TypedRequest';
-import { AppResponse } from '../contracts/express/TypedResponse';
+import GenericApiResponse from '../contracts/Express/generic-api-response';
+import { Empty, AppRequest } from '../contracts/Express/typed-request';
+import { AppResponse } from '../contracts/Express/typed-response';
 import {
   UserGetOneRequestDto,
   UserGetOneResponseDto,

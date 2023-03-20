@@ -1,10 +1,10 @@
+import { UserGetAllCustomersRequestDto } from 'contracts/user/UserGetAllCustomersRequestDto';
+import { UserGetAllCustomersResponseDto } from 'contracts/user/UserGetAllCustomersResponseDto';
 import { PaginatingRequestDto } from '../contracts/common/PaginableRequestDto';
 import { PaginatingResponseDto } from '../contracts/common/PaginatingResponseDto';
-import GenericApiResponse from '../contracts/express/GenericApiResponse';
-import { AppRequest, Empty } from '../contracts/express/TypedRequest';
-import { AppResponse } from '../contracts/express/TypedResponse';
-import { UserGetAllCustomersRequestDto } from '../contracts/user/UserGetAllCustomersRequestDto';
-import { UserGetAllCustomersResponseDto } from '../contracts/user/UserGetAllCustomersResponseDto';
+import GenericApiResponse from '../contracts/Express/generic-api-response';
+import { AppRequest, Empty } from '../contracts/Express/typed-request';
+import { AppResponse } from '../contracts/Express/typed-response';
 import { prepareSearchData } from '../helpers/preaperSearchData';
 import { asyncWrapper } from '../middlewares/asyncWrapper';
 import AffiliateStat from '../models/AffiliateStat';

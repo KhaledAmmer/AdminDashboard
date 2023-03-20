@@ -2,16 +2,6 @@
 # yarn lockfile v1
 
 
-"@automapper/classes@^8.7.7":
-  version "8.7.7"
-  resolved "https://registry.yarnpkg.com/@automapper/classes/-/classes-8.7.7.tgz#2194ba66d4e7689bec23289b56efc5eb69358c9d"
-  integrity sha512-FSbvt6QE8XnhKKQZA3kpKLuLrr9x1iW+lNYTrawVLjxQ05zsCGccLxe7moMNrg1wFAVAouQKupFgCGQ7XRjmJw==
-
-"@automapper/core@^8.7.7":
-  version "8.7.7"
-  resolved "https://registry.yarnpkg.com/@automapper/core/-/core-8.7.7.tgz#b48dd0260d188e6036fafd7ac03727d9295175ab"
-  integrity sha512-YfpDJ/xqwUuC0S+BLNk81ZJfeL7CmjirUX/Gk9eQyx146DKvneBZgeZ9v5rDB51Ti14jTxVHis+5JuT7W/q0TA==
-
 "@aws-crypto/ie11-detection@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@aws-crypto/ie11-detection/-/ie11-detection-3.0.0.tgz#640ae66b4ec3395cee6a8e94ebcd9f80c24cd688"
@@ -933,11 +923,6 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha512-PCVAQswWemu6UdxsDFFX/+gVeYqKAod3D3UVm91jHwynguOwAvYPhx8nNlM++NqRcK6CxxpUafjmhIdKiHibqg==
-
-automapper-ts@^1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/automapper-ts/-/automapper-ts-1.9.0.tgz#2daabf675327a21cf71339ace2cf2b933faf24e6"
-  integrity sha512-GVk0lYG2vZEMnor6kknwdW0nfWv9TW2/PfNWlHsGVXHkCYGTzzG27AuVwPcOzoPfgEU0AHMCB+4K7iKd33i8ZQ==
 
 balanced-match@^1.0.0:
   version "1.0.2"

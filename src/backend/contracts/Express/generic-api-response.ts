@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { AppResponse } from './TypedResponse';
+import { AppResponse } from './typed-response';
 
 export default class GenericApiResponse {
   static ok<ResBody>(

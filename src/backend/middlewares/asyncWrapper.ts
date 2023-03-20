@@ -1,6 +1,6 @@
-import { NextFunction, Response, Request } from 'express';
-import { AppRequest } from '../contracts/express/TypedRequest';
-import { AppResponse } from '../contracts/express/TypedResponse';
+import { NextFunction } from 'express';
+import { AppRequest } from '../contracts/Express/typed-request';
+import { AppResponse } from '../contracts/Express/typed-response';
 
 type ControllerMethodProps<T> = (
   req: AppRequest<any, any, any>,

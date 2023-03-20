@@ -1,5 +1,6 @@
+import { allAdmins, getUserPerformance } from 'controllers/management';
 import express from 'express';
-import { allAdmins, getUserPerformance } from '../controllers/management';
+
 
 const managementRouter = express.Router();
 
