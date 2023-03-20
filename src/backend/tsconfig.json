@@ -21,7 +21,6 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "baseUrl": "./",
-    "typeRoots": ["node_modules/@types", "global.d.ts","contracts/**/*.ts"]
   },
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.json"],
   "exclude": ["node_modules"]
