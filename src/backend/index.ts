@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import * as  morgan from 'morgan';
-import * as  cors from 'cors';
+import * as morgan from 'morgan';
+import * as cors from 'cors';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 import productRouter from './routes/product';
