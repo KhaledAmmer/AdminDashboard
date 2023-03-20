@@ -1,4 +1,4 @@
-import { allAdmins, getUserPerformance } from 'controllers/management';
+import { allAdmins, getUserPerformance } from '../controllers/management';
 import express from 'express';
 
 

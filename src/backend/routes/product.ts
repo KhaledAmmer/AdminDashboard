@@ -1,4 +1,4 @@
-import { allProducts, getDashboardStats, oneProduct } from 'controllers/product';
+import { allProducts, getDashboardStats, oneProduct } from '../controllers/product';
 import express from 'express';
 
 

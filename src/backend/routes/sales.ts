@@ -1,4 +1,4 @@
-import { getSales } from 'controllers/sales';
+import { getSales } from '../controllers/sales';
 import express from 'express';
 
 const salesRouter = express.Router();

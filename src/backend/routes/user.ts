@@ -1,4 +1,4 @@
-import { allCustomers, getUser, usersGeography } from 'controllers/user';
+import { allCustomers, getUser, usersGeography } from '../controllers/user';
 import express from 'express';
 
 const userRouter = express.Router();

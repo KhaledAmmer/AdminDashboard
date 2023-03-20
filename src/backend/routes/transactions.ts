@@ -1,4 +1,4 @@
-import { allTransactions } from 'controllers/transactions';
+import { allTransactions } from '../controllers/transactions';
 import express from 'express';
 
 const transactionsRouter = express.Router();
