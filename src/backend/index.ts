@@ -27,7 +27,7 @@ app.use('/user', userRouter);
 app.use('/management', managementRouter);
 app.use('/sales', salesRouter);
 app.use('/transactions', transactionsRouter);
-app.use('/products', productRouter);
+//app.use('/products', productRouter);
 
 app.use(globalErrorHandler);
 
